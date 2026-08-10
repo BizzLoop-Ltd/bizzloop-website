@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BizzLoop Ltd | Simple Business Operating Systems for UK SMEs</title>
+<meta name="description" content="Run your entire business from one simple platform. Advanced lead capture, customer management, and automated tasks built for UK small businesses.">
+<meta property="og:title" content="BizzLoop Ltd | Premium Business Operating Systems">
+<meta property="og:description" content="Unified business software for UK SMEs. Automate your daily operations, CRM, and accounts.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Crect x='25' y='20' width='70' height='44' rx='22' stroke='%231451D8' stroke-width='13'/%3E%3Crect x='25' y='56' width='70' height='44' rx='22' stroke='%2304A5C2' stroke-width='13'/%3E%3Cpath d='M25 42 A22 22 0 0 1 47 20 H73 A22 22 0 0 1 95 42' stroke='%231451D8' stroke-width='13' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']},colors:{brand:{50:'#EFF6FF',100:'#DBEAFE',200:'#BFDBFE',500:'#1451D8',600:'#1D4ED8',700:'#1E40AF'},accent:{cyan:'#04A5C2',green:'#22C55E'},dark:'#0F172A',light:'#F8FAFC'}}}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#FFFFFF;color:#0F172A;margin:0;overflow-x:hidden}
+
+/* ── Full Website 3D Background Canvas ── */
+#bg-3d-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* ── Noise ── */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.015;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:128px}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(20,81,216,.2);border-radius:3px}
+
+/* ── Glass ── */
+.glass{background:rgba(255,255,255,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.glass-strong{background:rgba(255,255,255,.88);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(0,0,0,.08);box-shadow:0 8px 32px rgba(0,0,0,.06)}
+
+/* ── Gradient Text ── */
+.text-grad{background:linear-gradient(135deg,#1451D8,#04A5C2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.text-grad-green{background:linear-gradient(135deg,#1451D8,#22C55E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── Buttons ── */
+.btn-primary{background:linear-gradient(135deg,#1451D8,#04A5C2);color:#fff;transition:all .3s cubic-bezier(.16,1,.3,1);box-shadow:0 4px 20px rgba(20,81,216,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(20,81,216,.35)}
+.btn-secondary{background:#fff;color:#0F172A;border:1px solid rgba(0,0,0,.1);transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.btn-secondary:hover{border-color:rgba(20,81,216,.3);box-shadow:0 4px 16px rgba(20,81,216,.1);transform:translateY(-1px)}
+
+/* ── 3D Card & Sub Link Hover Animations ── */
+.card-3d, .sub-link-card{
+  transition:all .35s cubic-bezier(.16,1,.3,1);
+  transform-style:preserve-3d;
+  position:relative;
+}
+.card-3d:hover, .sub-link-card:hover{
+  transform:translateY(-6px) scale(1.015);
+  box-shadow:0 20px 40px rgba(20,81,216,.12), 0 0 0 2px rgba(20,81,216,.2);
+}
+.card-3d:active, .sub-link-card:active{
+  transform:translateY(-2px) scale(0.99);
+}
+
+/* ── FAQ Window Opening Animations ── */
+.faq-item{
+  transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-item.faq-active{
+  background:linear-gradient(135deg, rgba(239,246,255,0.9) 0%, rgba(207,250,254,0.4) 100%);
+  border-color:rgba(20,81,216,0.3) !important;
+  box-shadow:0 12px 32px rgba(20,81,216,0.1);
+  transform:scale(1.01);
+}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+/* ── Float ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float{animation:float 6s ease-in-out infinite}
+.float-d1{animation:float 6s ease-in-out 1.5s infinite}
+.float-d2{animation:float 6s ease-in-out 3s infinite}
+
+/* ── Scroll Progress ── */
+#scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#1451D8,#04A5C2);z-index:200;width:0;transition:width .1s}
+
+/* ── Range Slider ── */
+input[type=range]{-webkit-appearance:none;width:100%;background:transparent}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:22px;width:22px;border-radius:50%;background:linear-gradient(135deg,#1451D8,#04A5C2);cursor:pointer;margin-top:-9px;box-shadow:0 0 16px rgba(20,81,216,.35);transition:transform .2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;background:#E2E8F0;border-radius:2px}
+
+/* ── Workflow Line Pulse ── */
+@keyframes pulse-line{0%,100%{opacity:.4}50%{opacity:1}}
+.workflow-line{animation:pulse-line 2s ease-in-out infinite}
+
+/* ── Popular Ring ── */
+.popular-ring{position:relative}
+.popular-ring::before{content:'';position:absolute;inset:-2px;border-radius:1.5rem;padding:2px;background:linear-gradient(135deg,#1451D8,#04A5C2,#22C55E);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+/* ── Metric Shine ── */
+.metric-shine{position:relative;overflow:hidden}
+.metric-shine::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:left .6s ease}
+.metric-shine:hover::after{left:150%}
+
+/* ── Section BG ── */
+.section-alt{background:#F8FAFC}
+.section-gradient{background:linear-gradient(180deg,#FFFFFF 0%,#F0F7FF 100%)}
+
+/* ── 3D Department Node Hover Effects ── */
+.dept-node{transition:all 0.3s cubic-bezier(0.16,1,0.3,1);cursor:pointer}
+.dept-node:hover, .dept-node.active{transform:scale(1.08) translateY(-4px);box-shadow:0 14px 30px rgba(20,81,216,0.18), 0 0 0 2px #1451D8}
+
+@media(max-width:768px){
+  .hero-h{font-size:2.25rem!important;line-height:1.15!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Full Website 3D Background Canvas -->
+<canvas id="bg-3d-canvas"></canvas>
+
+<!-- Scroll Progress -->
+<div id="scroll-bar"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- NAVIGATION -->
+<!-- ══════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-[76px] flex items-center justify-between">
+    <!-- Brand Logo using provided vector asset -->
+    <a href="#" class="flex items-center gap-3 group" aria-label="BizzLoop Home">
+      <svg class="w-9 h-9 shrink-0 transition-transform group-hover:scale-105" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="25" y="20" width="70" height="44" rx="22" stroke="#1451D8" stroke-width="13" fill="none"/>
+        <rect x="25" y="56" width="70" height="44" rx="22" stroke="#04A5C2" stroke-width="13" fill="none"/>
+        <path d="M25 42 A22 22 0 0 1 47 20 H73 A22 22 0 0 1 95 42" stroke="#1451D8" stroke-width="13" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="text-[24px] font-bold tracking-tight text-[#0F172A]">Bizz<span class="text-[#1451D8]">Loop</span></span>
+    </a>
+    <!-- Desktop Links -->
+    <div class="hidden lg:flex items-center gap-8 text-[13px] font-medium text-slate-500">
+      <a href="#platform" class="hover:text-brand-500 transition-colors">Platform</a>
+      <a href="#interlink" class="hover:text-brand-500 transition-colors">How It Connects</a>
+      <a href="#features" class="hover:text-brand-500 transition-colors">Features</a>
+      <a href="#pricing" class="hover:text-brand-500 transition-colors">Pricing</a>
+      <a href="#faq" class="hover:text-brand-500 transition-colors">FAQ</a>
+    </div>
+    <!-- Desktop CTA: Single CTA Button -->
+    <div class="hidden lg:flex items-center gap-3">
+      <button class="btn-primary px-6 py-2.5 rounded-full text-[13px] font-semibold open-modal flex items-center gap-2">Book a Demo <i class="ti ti-arrow-right text-xs"></i></button>
+    </div>
+    <!-- Mobile -->
+    <button id="menu-btn" class="lg:hidden w-9 h-9 flex items-center justify-center text-dark" aria-label="Menu"><i class="ti ti-menu-2 text-2xl"></i></button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl translate-x-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-20 px-6 pb-8">
+  <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+    <svg class="w-8 h-8 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="25" y="20" width="70" height="44" rx="22" stroke="#1451D8" stroke-width="13" fill="none"/>
+      <rect x="25" y="56" width="70" height="44" rx="22" stroke="#04A5C2" stroke-width="13" fill="none"/>
+      <path d="M25 42 A22 22 0 0 1 47 20 H73 A22 22 0 0 1 95 42" stroke="#1451D8" stroke-width="13" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="text-2xl font-bold tracking-tight text-[#0F172A]">Bizz<span class="text-[#1451D8]">Loop</span></span>
+  </div>
+  <div class="flex flex-col gap-1 flex-1">
+    <a href="#" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">Home <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+    <a href="#platform" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">Platform <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+    <a href="#interlink" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">How It Connects <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+    <a href="#features" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">Features <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+    <a href="#pricing" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">Pricing <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+    <a href="#faq" class="mob-link text-xl font-semibold text-dark py-4 border-b border-slate-100 flex justify-between items-center">FAQ <i class="ti ti-chevron-right text-sm text-slate-300"></i></a>
+  </div>
+  <button class="mob-link open-modal btn-primary w-full py-4 rounded-2xl font-semibold text-base text-center">Book a Demo</button>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- DEMO MODAL -->
+<!-- ══════════════════════════════════════════ -->
+<div id="demo-modal" class="fixed inset-0 z-[200] hidden">
+  <div id="modal-bg" class="absolute inset-0 bg-dark/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+  <div class="relative z-10 flex items-center justify-center min-h-full p-4 sm:p-6">
+    <div id="modal-box" class="glass-strong w-full max-w-4xl rounded-3xl p-6 sm:p-10 opacity-0 scale-95 transition-all duration-300 max-h-[95vh] overflow-y-auto relative">
+      <button class="modal-close absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors"><i class="ti ti-x text-lg"></i></button>
+      <div class="grid lg:grid-cols-2 gap-10">
+        <!-- Left: Displays ONLY Business Email & WhatsApp CTA -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-5">Free Strategy Call</div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-3 tracking-tight">Let us map your<br>growth setup</h2>
+          <p class="text-slate-500 text-sm leading-relaxed mb-8">Book a free 30 minute consultation. We will identify your admin bottlenecks and show you how to fix them.</p>
+          <div class="space-y-3">
+            <a href="mailto:info@bizzloop.co.uk" class="flex items-center gap-3 text-slate-700 hover:text-brand-500 transition-colors text-sm font-semibold p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-brand-200">
+              <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-brand-500 shadow-sm shrink-0"><i class="ti ti-mail text-xl"></i></div>
+              <span>info@bizzloop.co.uk</span>
+            </a>
+            <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="flex items-center gap-3 text-emerald-700 hover:text-emerald-800 transition-colors text-sm font-semibold p-3 rounded-xl bg-emerald-50/60 border border-emerald-100 hover:border-emerald-300">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-sm shrink-0"><i class="ti ti-brand-whatsapp text-xl"></i></div>
+              <div class="flex flex-col">
+                <span class="text-[10px] text-emerald-600 uppercase tracking-wider font-bold">WhatsApp Us</span>
+                <span>+44 7586 476247</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="bg-light rounded-2xl p-5 sm:p-7 border border-slate-100">
+          <form id="demo-form" onsubmit="handleSubmit(event)" class="space-y-3.5">
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">First Name *</label><input type="text" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+              <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Last Name *</label><input type="text" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Work Email *</label><input type="email" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+              <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">WhatsApp / Phone *</label><input type="tel" required placeholder="+44 7586 476247" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+            </div>
+            <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Company & Size *</label><input type="text" required placeholder="e.g. Acme Ltd, 15 staff" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+            <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Industry *</label>
+              <select required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all appearance-none">
+                <option value="" disabled selected>Select industry</option>
+                <option>Clinic or Medical</option><option>Salon or Beauty</option><option>Restaurant or Hospitality</option><option>Real Estate or Property</option><option>Retail or Ecommerce</option><option>Professional Services</option><option>Other UK Small Business</option>
+              </select>
+            </div>
+            <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Message</label><textarea rows="2" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all resize-none"></textarea></div>
+            <label class="flex items-start gap-2.5 cursor-pointer"><input type="checkbox" required class="mt-0.5 w-4 h-4 rounded border-slate-300 text-brand-500 focus:ring-brand-500/20"><span class="text-[10px] text-slate-500 leading-tight">I consent to BizzLoop Ltd processing my information in accordance with our <a href="#privacy" onclick="closeModal()" class="text-brand-500 hover:underline">Privacy Policy</a> and <a href="#gdpr" onclick="closeModal()" class="text-brand-500 hover:underline">UK GDPR Policy</a>.</span></label>
+            <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm">Book Your Free Demo</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- MAIN VIEWS CONTAINER -->
+<!-- ══════════════════════════════════════════ -->
+<main id="main-view">
+
+<!-- ── HOME VIEW ── -->
+<div id="view-home" class="page-view">
+
+<!-- ── HERO ── -->
+<section class="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden">
+  <!-- Glow Orbs -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-brand-500 blur-[200px] opacity-[0.06] pointer-events-none -translate-y-1/2"></div>
+  <div class="absolute top-40 right-0 w-[400px] h-[400px] rounded-full bg-accent-cyan blur-[150px] opacity-[0.05] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <!-- Badge -->
+    <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100 mb-8">
+      <span class="relative flex h-2 w-2"><span class="animate-ping absolute h-full w-full rounded-full bg-accent-green opacity-75"></span><span class="relative rounded-full h-2 w-2 bg-accent-green"></span></span>
+      <span class="text-[11px] font-semibold text-brand-500 uppercase tracking-widest">Built For UK Small Businesses</span>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="reveal hero-h text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold tracking-[-0.03em] leading-[1.1] text-dark mb-6">
+      Run your entire business<br>from <span class="text-grad">one simple system.</span>
+    </h1>
+
+    <!-- Sub -->
+    <p class="reveal reveal-d1 text-base sm:text-lg text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+      BizzLoop combines customer leads, sales management, billing, and team scheduling into one automatically synced system.
+    </p>
+
+    <!-- CTAs -->
+    <div class="reveal reveal-d2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
+      <button class="btn-primary px-8 py-4 rounded-full font-semibold text-[15px] w-full sm:w-auto flex items-center justify-center gap-2 open-modal">
+        Book a Demo <i class="ti ti-arrow-right text-lg"></i>
+      </button>
+      <a href="#interlink" class="btn-secondary px-8 py-4 rounded-full font-semibold text-[15px] w-full sm:w-auto text-center">
+        How It Connects
+      </a>
+    </div>
+    <p class="reveal reveal-d3 text-xs text-slate-400 font-medium">Free 30 minute consultation. No obligation.</p>
+  </div>
+
+  <!-- ── Hero Dashboard Preview ── -->
+  <div class="reveal reveal-d3 relative w-full max-w-5xl mx-auto mt-14 sm:mt-20 hidden md:block" style="perspective:1200px">
+    <div class="glass-strong rounded-2xl p-5 sm:p-6 shadow-2xl shadow-brand-500/5 float" style="transform:rotateX(6deg);transform-origin:center bottom">
+      <!-- Chrome Bar -->
+      <div class="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-400"></div><div class="w-3 h-3 rounded-full bg-yellow-400"></div><div class="w-3 h-3 rounded-full bg-green-400"></div></div>
+          <span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100"><i class="ti ti-lock text-[10px] mr-1 text-accent-green"></i>BizzLoop Business Operating System</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[11px] font-medium text-accent-green flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse"></span>Live Sync</span>
+          <div class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-accent-cyan"></div>
+        </div>
+      </div>
+      <!-- Metrics -->
+      <div class="grid grid-cols-4 gap-3">
+        <div class="metric-shine bg-light rounded-xl p-4 border border-slate-100">
+          <div class="text-[11px] font-medium text-slate-400 mb-1">Monthly Revenue</div>
+          <div class="text-2xl font-bold text-dark">£127.4K</div>
+          <div class="text-[10px] text-accent-green font-semibold mt-2 flex items-center gap-1"><i class="ti ti-trending-up text-xs"></i>+18.3%</div>
+        </div>
+        <div class="metric-shine bg-light rounded-xl p-4 border border-slate-100">
+          <div class="text-[11px] font-medium text-slate-400 mb-1">Active Customers</div>
+          <div class="text-2xl font-bold text-brand-500">2,845</div>
+          <div class="text-[10px] text-accent-green font-semibold mt-2 flex items-center gap-1"><i class="ti ti-trending-up text-xs"></i>+12.5%</div>
+        </div>
+        <div class="metric-shine bg-light rounded-xl p-4 border border-slate-100">
+          <div class="text-[11px] font-medium text-slate-400 mb-1">Tasks Saved</div>
+          <div class="text-2xl font-bold text-accent-cyan">1,420</div>
+          <div class="text-[10px] text-slate-400 font-medium mt-2">This month</div>
+        </div>
+        <div class="metric-shine bg-light rounded-xl p-4 border border-slate-100">
+          <div class="text-[11px] font-medium text-slate-400 mb-2">Team Capacity</div>
+          <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full w-[92%] bg-gradient-to-r from-brand-500 to-accent-green rounded-full"></div></div>
+          <div class="flex justify-between mt-2 text-[10px] font-medium"><span class="text-slate-400">Efficiency</span><span class="text-accent-green font-semibold">92%</span></div>
+        </div>
+      </div>
+      <!-- Chart Row -->
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <div class="col-span-2 bg-light rounded-xl p-4 border border-slate-100">
+          <div class="text-[11px] font-medium text-slate-400 mb-3">Revenue & Sales Growth</div>
+          <svg viewBox="0 0 500 90" class="w-full h-20" preserveAspectRatio="none">
+            <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1451D8" stop-opacity=".15"/><stop offset="100%" stop-color="#1451D8" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0 70 Q40 65 80 55 T160 45 T240 35 T320 25 T400 18 T500 8" fill="none" stroke="#1451D8" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M0 70 Q40 65 80 55 T160 45 T240 35 T320 25 T400 18 T500 8 V90 H0Z" fill="url(#hg)"/>
+          </svg>
+        </div>
+        <div class="bg-light rounded-xl p-4 border border-slate-100 flex flex-col items-center justify-center">
+          <div class="text-[11px] font-medium text-slate-400 mb-2">Enquiry Conversion</div>
+          <svg viewBox="0 0 80 80" class="w-16 h-16">
+            <circle cx="40" cy="40" r="34" fill="none" stroke="#E2E8F0" stroke-width="5"/>
+            <circle cx="40" cy="40" r="34" fill="none" stroke="url(#ag)" stroke-width="5" stroke-linecap="round" stroke-dasharray="146 68" transform="rotate(-90 40 40)"/>
+            <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1451D8"/><stop offset="100%" stop-color="#22C55E"/></linearGradient></defs>
+            <text x="40" y="44" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="700">68%</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST ── -->
+<section class="py-14 sm:py-16 px-5 sm:px-8 border-y border-slate-100 section-alt">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-10">
+      <p class="text-sm font-medium text-slate-400">Trusted by growing small businesses across the UK</p>
+    </div>
+    <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div><div class="text-3xl sm:text-4xl font-bold text-dark"><span class="counter" data-target="2845">0</span>+</div><p class="text-xs text-slate-400 font-medium mt-1">New Leads Captured</p></div>
+      <div><div class="text-3xl sm:text-4xl font-bold text-dark"><span class="counter" data-target="140">0</span>h</div><p class="text-xs text-slate-400 font-medium mt-1">Admin Hours Saved Monthly</p></div>
+      <div><div class="text-3xl sm:text-4xl font-bold text-dark"><span class="counter" data-target="98">0</span>%</div><p class="text-xs text-slate-400 font-medium mt-1">Lead Response Rate</p></div>
+      <div><div class="text-3xl sm:text-4xl font-bold text-dark"><span class="counter" data-target="68">0</span>%</div><p class="text-xs text-slate-400 font-medium mt-1">Average Conversion Rate</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLATFORM VISUALIZATION ── -->
+<section id="platform" class="py-24 sm:py-32 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 sm:mb-20">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">The Platform</p>
+      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-5">Your entire business in one place.</h2>
+      <p class="reveal reveal-d1 text-slate-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">No more switching between separate apps. BizzLoop links every part of your organisation in real time.</p>
+    </div>
+
+    <!-- Platform Cards with Animated Brand Color Window Hover/Click Effects -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" style="perspective:800px">
+      <div class="reveal sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-brand-500 mb-4 transition-transform group-hover:scale-110"><i class="ti ti-chart-pie text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Sales & Revenue</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">See live sales totals, upcoming payments, and business health instantly.</p>
+      </div>
+      <div class="reveal reveal-d1 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-cyan-50 flex items-center justify-center text-accent-cyan mb-4 transition-transform group-hover:scale-110"><i class="ti ti-users text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Customer Manager</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Keep track of every customer contact, notes, and progress automatically.</p>
+      </div>
+      <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-green-50 flex items-center justify-center text-accent-green mb-4 transition-transform group-hover:scale-110"><i class="ti ti-list-check text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Automatic Tasks</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Let the software send automatic email follow-ups, appointment reminders, and tasks.</p>
+      </div>
+      <div class="reveal sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-brand-500 mb-4 transition-transform group-hover:scale-110"><i class="ti ti-receipt text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Invoicing & Incomes</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Create invoices quickly, track payments, and reduce manual book-keeping work.</p>
+      </div>
+      <div class="reveal reveal-d1 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-cyan-50 flex items-center justify-center text-accent-cyan mb-4 transition-transform group-hover:scale-110"><i class="ti ti-report-analytics text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Weekly Business Reports</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Clear weekly summaries showing customer growth and team productivity.</p>
+      </div>
+      <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 group">
+        <div class="w-11 h-11 rounded-xl bg-green-50 flex items-center justify-center text-accent-green mb-4 transition-transform group-hover:scale-110"><i class="ti ti-users-group text-2xl"></i></div>
+        <h3 class="text-base font-bold text-dark mb-1.5">Team Work</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Shared calendars, notes, and task assignments so everyone stays aligned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 3D INTERLINKED DEPARTMENT CONNECTOR SECTION -->
+<!-- ══════════════════════════════════════════ -->
+<section id="interlink" class="py-24 sm:py-32 px-5 sm:px-8 section-alt border-y border-slate-100 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-3">
+        <i class="ti ti-3d-cube-sphere text-base"></i> Live System Connection
+      </div>
+      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-4">
+        How All Your Departments Connect
+      </h2>
+      <p class="reveal reveal-d1 text-slate-500 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        Watch how information moves automatically between sales, customer service, accounts, and daily operations through BizzLoop.
+      </p>
+    </div>
+
+    <!-- 3D Interlink Canvas Container (Clean & Spacious - Stream Bar Removed per User Request) -->
+    <div class="glass-strong rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-2xl relative overflow-hidden">
+      <!-- Interactive canvas -->
+      <div class="relative w-full h-[380px] sm:h-[460px] flex items-center justify-center" style="perspective:1000px">
+        <canvas id="interlink-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+        
+        <!-- Department Nodes Layer -->
+        <div id="dept-nodes-container" class="relative z-20 w-full h-full flex items-center justify-center">
+          <!-- Rendered dynamically via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Mid CTA ── -->
+<section class="py-16 px-5 sm:px-8 bg-white border-b border-slate-100">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <h2 class="text-2xl sm:text-3xl font-bold text-dark mb-4">See BizzLoop in action</h2>
+    <p class="text-sm text-slate-500 mb-8 max-w-lg mx-auto">Book a free 30 minute demo and we will walk you through how BizzLoop eliminates your admin headaches.</p>
+    <button class="btn-primary px-8 py-4 rounded-full font-semibold text-[15px] open-modal inline-flex items-center gap-2">Book a Demo <i class="ti ti-arrow-right text-lg"></i></button>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section id="features" class="py-24 sm:py-32 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 sm:mb-20">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Why Choose Us</p>
+      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-5">Everything you need.<br><span class="text-grad">Nothing you don't.</span></h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-5">
+      <!-- Old vs New -->
+      <div class="reveal bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 relative overflow-hidden">
+        <div class="absolute top-4 right-4 text-red-200"><i class="ti ti-alert-triangle text-5xl"></i></div>
+        <h3 class="text-lg font-bold text-dark mb-1">The Old Way</h3>
+        <p class="text-[11px] font-semibold text-red-400 uppercase tracking-wider mb-5">Disconnected Tools</p>
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl opacity-60 line-through decoration-red-300"><div class="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="ti ti-device-laptop text-sm"></i></div><div class="text-sm text-slate-600">Basic website with no automatic lead notifications</div></div>
+          <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl opacity-60 line-through decoration-red-300"><div class="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="ti ti-table text-sm"></i></div><div class="text-sm text-slate-600">Manual spreadsheets where customer details get lost</div></div>
+          <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl opacity-60 line-through decoration-red-300"><div class="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-slate-400 shrink-0"><i class="ti ti-mail text-sm"></i></div><div class="text-sm text-slate-600">Hours spent writing manual emails every day</div></div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d1 bg-white rounded-2xl p-6 sm:p-8 border border-brand-100 relative overflow-hidden shadow-lg shadow-brand-500/5">
+        <div class="absolute -top-12 -right-12 w-32 h-32 bg-brand-500 rounded-full blur-[80px] opacity-[0.06]"></div>
+        <h3 class="text-lg font-bold text-dark mb-1">The BizzLoop Way</h3>
+        <p class="text-[11px] font-semibold text-brand-500 uppercase tracking-wider mb-5">One Connected System</p>
+        <div class="space-y-2.5 relative">
+          <div class="absolute left-[15px] top-6 bottom-6 w-px bg-gradient-to-b from-brand-500 to-accent-green opacity-20"></div>
+          <div class="flex items-center gap-3 bg-brand-50/50 p-3 rounded-xl relative z-10 hover:bg-brand-50 transition-colors"><div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-500 shrink-0"><i class="ti ti-rocket text-sm"></i></div><div class="text-sm font-medium text-dark">Instant lead alerts and automatic routing</div></div>
+          <div class="flex items-center gap-3 bg-brand-50/50 p-3 rounded-xl relative z-10 hover:bg-brand-50 transition-colors"><div class="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-500 shrink-0"><i class="ti ti-database text-sm"></i></div><div class="text-sm font-medium text-dark">Central customer list updated in real time</div></div>
+          <div class="flex items-center gap-3 bg-green-50/50 p-3 rounded-xl relative z-10 hover:bg-green-50 transition-colors"><div class="w-8 h-8 rounded-lg bg-green-50 border border-green-100 flex items-center justify-center text-accent-green shrink-0"><i class="ti ti-bolt text-sm"></i></div><div class="text-sm font-medium text-dark">Automatic tasks and invoices on autopilot</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── WHY BIZZLOOP ── -->
+<section class="py-24 sm:py-32 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Why BizzLoop</p>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight text-dark">Built simply. Runs smoothly.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="reveal sub-link-card bg-white rounded-2xl p-6 border border-slate-100 text-center"><div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-brand-500 mx-auto mb-4"><i class="ti ti-puzzle text-2xl"></i></div><h4 class="text-sm font-bold text-dark mb-1">Less Complexity</h4><p class="text-[11px] text-slate-400">One clear system replacing multiple messy software apps.</p></div>
+      <div class="reveal reveal-d1 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 text-center"><div class="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center text-accent-cyan mx-auto mb-4"><i class="ti ti-bolt text-2xl"></i></div><h4 class="text-sm font-bold text-dark mb-1">More Time Saved</h4><p class="text-[11px] text-slate-400">Automatic updates so you do not waste time copying data manually.</p></div>
+      <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 text-center"><div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-accent-green mx-auto mb-4"><i class="ti ti-brain text-2xl"></i></div><h4 class="text-sm font-bold text-dark mb-1">Better Decisions</h4><p class="text-[11px] text-slate-400">Up to date business numbers help you plan with confidence.</p></div>
+      <div class="reveal reveal-d3 sub-link-card bg-white rounded-2xl p-6 border border-slate-100 text-center"><div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-brand-500 mx-auto mb-4"><i class="ti ti-rocket text-2xl"></i></div><h4 class="text-sm font-bold text-dark mb-1">Faster Growth</h4><p class="text-[11px] text-slate-400">Save 140 hours of office work each month to focus on your clients.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROI ── -->
+<section class="py-24 sm:py-32 px-5 sm:px-8 section-alt border-y border-slate-100">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl shadow-brand-500/5 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-60 h-60 bg-brand-500 rounded-full blur-[120px] opacity-[0.04] pointer-events-none"></div>
+      <div class="grid md:grid-cols-2 gap-10 items-center relative z-10">
+        <div>
+          <p class="text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Time Savings Calculator</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-dark mb-3">Calculate your monthly savings</h2>
+          <p class="text-sm text-slate-500 leading-relaxed mb-8">See how many office admin hours BizzLoop can save for your team every month.</p>
+          <div class="bg-light p-5 rounded-2xl border border-slate-100">
+            <div class="flex justify-between mb-4"><label class="text-sm font-medium text-slate-600">Weekly Admin Hours</label><span id="slider-val" class="text-sm font-mono text-brand-500 bg-brand-50 px-2.5 py-0.5 rounded-lg border border-brand-100">40 hrs</span></div>
+            <input type="range" id="hours-slider" min="10" max="200" value="40">
+            <div class="flex justify-between mt-3 text-[11px] font-medium text-slate-300 font-mono"><span>10h</span><span>200h+</span></div>
+          </div>
+        </div>
+        <div class="text-center p-8 rounded-2xl bg-light border border-slate-100 relative">
+          <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">Monthly Hours Saved</p>
+          <div class="text-6xl sm:text-7xl font-bold text-grad mb-2" id="savings-output">104</div>
+          <p class="text-[11px] text-slate-400 mb-8 font-medium">Based on standard business automation rates</p>
+          <button class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Book a Demo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing" class="py-24 sm:py-32 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 sm:mb-20">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Pricing</p>
+      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-5">Clear, simple pricing.</h2>
+      <p class="reveal reveal-d1 text-slate-500 max-w-lg mx-auto text-sm">No hidden charges. No long contracts. Upgrade as you grow.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 items-stretch">
+      <!-- Starter -->
+      <div class="reveal sub-link-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 flex flex-col">
+        <h3 class="text-lg font-bold text-dark mb-1">Starter Package</h3>
+        <p class="text-[11px] text-slate-400 font-medium mb-5">Ideal for small teams</p>
+        <div class="mb-6"><span class="text-4xl font-bold text-dark">£149</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£249 one off setup</div></div>
+        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-slate-300 mt-0.5"></i>Custom Website Front End</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-slate-300 mt-0.5"></i>Basic Customer Database</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-slate-300 mt-0.5"></i>Automatic Form Notifications</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-slate-300 mt-0.5"></i>Email Confirmation Tasks</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-slate-300 mt-0.5"></i>Simple Business Summary</li>
+        </ul>
+        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Select Starter</button>
+      </div>
+
+      <!-- Growth -->
+      <div class="reveal reveal-d1 popular-ring sub-link-card bg-white rounded-3xl p-6 sm:p-8 flex flex-col md:-translate-y-4 relative z-10 shadow-xl shadow-brand-500/8">
+        <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-accent-cyan text-white text-[9px] font-bold uppercase tracking-widest py-1 px-4 rounded-b-lg">Most Popular</div>
+        <h3 class="text-lg font-bold text-brand-500 mt-3 mb-1">Growth Package</h3>
+        <p class="text-[11px] text-slate-400 font-medium mb-5">Automated Customer Engine</p>
+        <div class="mb-6"><span class="text-4xl font-bold text-dark">£349</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£599 one off setup</div></div>
+        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-700 font-medium">
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Everything in Starter</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Full Customer Manager</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Instant SMS & Email Alerts</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Online Booking System</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Custom Follow Up Sequences</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Weekly Performance Reports</li>
+        </ul>
+        <button class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Deploy Growth Package</button>
+      </div>
+
+      <!-- Business -->
+      <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 flex flex-col">
+        <h3 class="text-lg font-bold text-dark mb-1">Business Package</h3>
+        <p class="text-[11px] text-slate-400 font-medium mb-5">Complete Business Control</p>
+        <div class="mb-6"><span class="text-4xl font-bold text-dark">£749</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£1,399 one off setup</div></div>
+        <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Everything in Growth</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Automatic Invoicing & Stock</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Mobile App View for Staff</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Multi Staff Access Roles</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Advanced Custom Rules</li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Dedicated Support Specialist</li>
+        </ul>
+        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal hover:border-accent-cyan/30">Select Business</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="py-24 sm:py-32 px-5 sm:px-8 section-alt border-y border-slate-100">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Testimonials</p>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight text-dark">Loved by UK business owners</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="reveal sub-link-card bg-white rounded-2xl p-6 border border-slate-100">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i></div>
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">"BizzLoop eliminated 30 hours of admin work per week for our clinic. Having all customer notes in one place was worth every penny."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500 to-accent-cyan flex items-center justify-center text-white text-xs font-bold">JW</div><div><div class="text-sm font-semibold text-dark">James Walker</div><div class="text-[11px] text-slate-400">Director, Harley Clinic</div></div></div>
+      </div>
+      <div class="reveal reveal-d1 sub-link-card bg-white rounded-2xl p-6 border border-slate-100">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i></div>
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">"We moved from paper diaries to a proper customer system in 2 weeks. Enquiry follow up is now instant and sales have doubled."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-accent-cyan to-accent-green flex items-center justify-center text-white text-xs font-bold">SP</div><div><div class="text-sm font-semibold text-dark">Sarah Patel</div><div class="text-[11px] text-slate-400">Owner, Luxe Beauty Studio</div></div></div>
+      </div>
+      <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 border border-slate-100">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i><i class="ti ti-star-filled text-sm"></i></div>
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">"The automatic tasks saved us hiring an extra office assistant. BizzLoop pays for itself many times over every month."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500 to-accent-green flex items-center justify-center text-white text-xs font-bold">MK</div><div><div class="text-sm font-semibold text-dark">Michael Khan</div><div class="text-[11px] text-slate-400">CEO, Sterling Properties</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ (WITH WINDOW GRADIENT COLOR OPENING ANIMATIONS) ── -->
+<section id="faq" class="py-24 sm:py-32 px-5 sm:px-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">FAQ</p>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight text-dark">Frequently asked questions</h2>
+    </div>
+    <div class="space-y-3.5" id="faq-list">
+      <div class="reveal faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between p-5 sm:p-6 text-left group"><span class="text-sm sm:text-base font-semibold text-dark pr-4 group-hover:text-brand-500 transition-colors">What does a Business Operating System do?</span><i class="ti ti-plus text-slate-400 shrink-0 faq-icon text-lg transition-transform duration-300"></i></button>
+        <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]"><p class="text-sm text-slate-600 leading-relaxed pb-6 pt-1">It is a single software system that replaces separate website builders, customer spreadsheets, email programs, and diary apps. Instead of paying for multiple tools, you get one platform where customer info and tasks flow automatically.</p></div>
+      </div>
+      <div class="reveal reveal-d1 faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between p-5 sm:p-6 text-left group"><span class="text-sm sm:text-base font-semibold text-dark pr-4 group-hover:text-brand-500 transition-colors">How quickly can our UK business be set up?</span><i class="ti ti-plus text-slate-400 shrink-0 faq-icon text-lg transition-transform duration-300"></i></button>
+        <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]"><p class="text-sm text-slate-600 leading-relaxed pb-6 pt-1">The Starter Package is ready in 5 to 7 working days. The Growth Package takes 10 to 14 days. We manage the whole setup and training for your team.</p></div>
+      </div>
+      <div class="reveal reveal-d2 faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between p-5 sm:p-6 text-left group"><span class="text-sm sm:text-base font-semibold text-dark pr-4 group-hover:text-brand-500 transition-colors">Is our customer data secure and UK GDPR compliant?</span><i class="ti ti-plus text-slate-400 shrink-0 faq-icon text-lg transition-transform duration-300"></i></button>
+        <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]"><p class="text-sm text-slate-600 leading-relaxed pb-6 pt-1">Yes. BizzLoop complies strictly with UK GDPR regulations and the Data Protection Act 2018. All data is encrypted and hosted on secure UK infrastructure.</p></div>
+      </div>
+      <div class="reveal reveal-d3 faq-item bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+        <button class="faq-btn w-full flex items-center justify-between p-5 sm:p-6 text-left group"><span class="text-sm sm:text-base font-semibold text-dark pr-4 group-hover:text-brand-500 transition-colors">Can I change or cancel my monthly plan?</span><i class="ti ti-plus text-slate-400 shrink-0 faq-icon text-lg transition-transform duration-300"></i></button>
+        <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]"><p class="text-sm text-slate-600 leading-relaxed pb-6 pt-1">Monthly plans can be adjusted or cancelled with 30 days notice. There are no long term contract lock-ins.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="contact" class="py-24 sm:py-32 px-5 sm:px-8 relative overflow-hidden section-gradient border-t border-slate-100">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-brand-500 blur-[200px] opacity-[0.04] pointer-events-none"></div>
+  <div class="max-w-3xl mx-auto text-center relative z-10 reveal">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-5">Ready to simplify<br>your business?</h2>
+    <p class="text-slate-500 max-w-lg mx-auto text-sm sm:text-base leading-relaxed mb-10">Book a free 30 minute strategy call. We will show you how BizzLoop can automate your daily business operations.</p>
+    <button class="btn-primary px-10 py-4 rounded-full font-semibold text-[15px] open-modal inline-flex items-center gap-2 shadow-xl shadow-brand-500/20">
+      Book Your Demo <i class="ti ti-arrow-right text-lg"></i>
+    </button>
+    <p class="text-xs text-slate-400 mt-4 font-medium">Free · No obligation · 30 minutes</p>
+  </div>
+</section>
+
+</div> <!-- End #view-home -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SPA SUBPAGES (4 DEDICATED SUBPAGES) -->
+<!-- ══════════════════════════════════════════ -->
+
+<!-- 1. ABOUT US SUBPAGE -->
+<div id="view-about" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">About BizzLoop</div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Empowering UK Small Businesses</h1>
+    <p class="text-xs text-slate-400 mb-8">Our Mission & Approach</p>
+    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
+      <p>At BizzLoop Ltd, we believe British small and medium businesses deserve simple, reliable software that works without complex setup or expensive fees.</p>
+      <h3 class="text-base font-bold text-dark">Why We Built BizzLoop</h3>
+      <p>Most UK SMEs struggle with disconnected tools. A separate website builder, manual spreadsheet CRM, email marketing apps, and diary tools. This fragmentation wastes hundreds of staff hours every month.</p>
+      <p>We created BizzLoop as a single unified Business Operating System that connects enquiry capture, customer records, invoices, and staff tasks seamlessly.</p>
+      <h3 class="text-base font-bold text-dark">UK Focused Engineering</h3>
+      <p>Designed and supported specifically for UK companies. Fully compliant with UK GDPR regulations and built to help local businesses scale smoothly.</p>
+    </div>
+    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+  </div>
+</div>
+
+<!-- 2. PRIVACY POLICY SUBPAGE -->
+<div id="view-privacy" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Legal Notice</div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Privacy Policy</h1>
+    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
+    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
+      <p>At BizzLoop Ltd, we take your privacy seriously. This document explains how we collect, use, and protect your information when you use our website or services.</p>
+      <h3 class="text-base font-bold text-dark">1. Information We Collect</h3>
+      <p>We collect contact details such as name, work email address, phone number, and business name when voluntarily submitted through our enquiry and demo forms.</p>
+      <h3 class="text-base font-bold text-dark">2. How We Use Your Information</h3>
+      <p>We use your information solely to deliver our software services, communicate regarding your consultation request, and improve website functionality.</p>
+      <h3 class="text-base font-bold text-dark">3. Data Security</h3>
+      <p>We implement robust technical and organizational security controls to protect your data against unauthorized access or disclosure.</p>
+    </div>
+    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+  </div>
+</div>
+
+<!-- 3. TERMS OF SERVICE SUBPAGE -->
+<div id="view-terms" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Legal Terms</div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Terms & Conditions</h1>
+    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
+    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
+      <p>By using BizzLoop Ltd services or accessing our platform, you agree to these Terms and Conditions.</p>
+      <h3 class="text-base font-bold text-dark">1. Service Access</h3>
+      <p>BizzLoop Ltd provides a non-transferable licence for internal business usage of our software packages.</p>
+      <h3 class="text-base font-bold text-dark">2. Account Responsibility</h3>
+      <p>You are responsible for keeping account credentials confidential and restricting unauthorized system access.</p>
+      <h3 class="text-base font-bold text-dark">3. Subscription & Billing</h3>
+      <p>Monthly subscriptions are billed in advance. Services may be adjusted or cancelled with 30 days notice.</p>
+    </div>
+    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+  </div>
+</div>
+
+<!-- 4. UK GDPR COMPLIANCE SUBPAGE -->
+<div id="view-gdpr" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Compliance</div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">UK GDPR & Data Protection</h1>
+    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
+    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
+      <p>BizzLoop Ltd operates in full compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+      <h3 class="text-base font-bold text-dark">1. Your Individual Rights</h3>
+      <p>You have the right to request access to, correction of, or deletion of your personal data held by us at any time.</p>
+      <h3 class="text-base font-bold text-dark">2. Lawful Processing</h3>
+      <p>Data is processed on the basis of explicit consent, contract performance, and legitimate business operations.</p>
+      <h3 class="text-base font-bold text-dark">3. Data Storage in the UK</h3>
+      <p>All client data is encrypted and hosted securely within UK and EU data centres.</p>
+    </div>
+    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+  </div>
+</div>
+
+</main> <!-- End #main-view -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ══════════════════════════════════════════ -->
+<footer class="bg-dark text-white py-14 sm:py-16 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Brand column with official logo -->
+      <div class="lg:col-span-1">
+        <a href="#" class="flex items-center gap-3 mb-5">
+          <svg class="w-8 h-8 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="20" width="70" height="44" rx="22" stroke="#1451D8" stroke-width="13" fill="none"/>
+            <rect x="25" y="56" width="70" height="44" rx="22" stroke="#04A5C2" stroke-width="13" fill="none"/>
+            <path d="M25 42 A22 22 0 0 1 47 20 H73 A22 22 0 0 1 95 42" stroke="#1451D8" stroke-width="13" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span class="text-2xl font-bold tracking-tight text-white">Bizz<span class="text-[#04A5C2]">Loop</span></span>
+        </a>
+        <p class="text-slate-400 text-sm leading-relaxed mb-5">Simple, connected business software built specifically for UK small and medium enterprises.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-linkedin text-lg"></i></a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-instagram text-lg"></i></a>
+          <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-youtube text-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Section links -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Main Menu</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#platform" class="hover:text-white transition-colors">Platform Overview</a></li>
+          <li><a href="#interlink" class="hover:text-white transition-colors">How It Connects</a></li>
+          <li><a href="#features" class="hover:text-white transition-colors">Why BizzLoop</a></li>
+          <li><a href="#pricing" class="hover:text-white transition-colors">Pricing Packages</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- 4 SPA Subpages Footer Links -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company & Legal</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#about" class="hover:text-white transition-colors">About BizzLoop</a></li>
+          <li><a href="#privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#terms" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+          <li><a href="#gdpr" class="hover:text-white transition-colors">UK GDPR Compliance</a></li>
+        </ul>
+      </div>
+
+      <!-- Blended Clean Company Information Window (Registered Name & Number Only) -->
+      <div class="bg-white/[0.03] p-5 rounded-xl border border-white/5 flex flex-col justify-between">
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2"><i class="ti ti-building text-brand-500 text-base"></i>Company Information</h4>
+          <div class="text-xs text-slate-400 space-y-2 font-mono leading-relaxed">
+            <p><strong class="text-slate-200">BIZZLOOP LTD</strong></p>
+            <p>Company No: <strong class="text-slate-200">17319641</strong></p>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10px] text-slate-500">
+          Registered in England & Wales
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
+      <div class="text-xs text-slate-500">&copy; <span id="year"></span> BIZZLOOP LTD. All rights reserved.</div>
+      <div class="flex flex-wrap justify-center gap-5 text-xs text-slate-400">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#privacy" class="hover:text-white transition-colors">Privacy</a>
+        <a href="#terms" class="hover:text-white transition-colors">Terms</a>
+        <a href="#gdpr" class="hover:text-white transition-colors">UK GDPR</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="btt" class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-500 transition-all opacity-0 pointer-events-none z-50" aria-label="Back to top"><i class="ti ti-chevron-up text-lg"></i></button>
+
+<!-- Mobile Sticky CTA -->
+<div id="mobile-cta" class="fixed bottom-0 inset-x-0 z-40 p-3 bg-white/90 backdrop-blur-xl border-t border-slate-100 lg:hidden opacity-0 pointer-events-none transition-opacity duration-300">
+  <button class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm open-modal flex items-center justify-center gap-2">Book a Demo <i class="ti ti-arrow-right"></i></button>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- UK GDPR COOKIE CONSENT POPUP -->
+<!-- ══════════════════════════════════════════ -->
+<div id="cookie-popup" class="fixed bottom-5 left-5 right-5 sm:right-auto sm:max-w-md z-[150] glass-strong p-5 rounded-2xl border border-slate-200/80 shadow-2xl transition-all duration-300 transform translate-y-full opacity-0">
+  <div class="flex items-start gap-3.5 mb-3">
+    <div class="w-9 h-9 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-500 shrink-0 mt-0.5">
+      <i class="ti ti-cookie text-xl"></i>
+    </div>
+    <div>
+      <h4 class="text-sm font-bold text-dark mb-1">Cookie Preferences</h4>
+      <p class="text-xs text-slate-500 leading-relaxed">We use essential cookies to ensure BizzLoop works smoothly and to analyze website traffic in compliance with UK GDPR.</p>
+    </div>
+  </div>
+  <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+    <button id="cookie-reject" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors">Essential Only</button>
+    <button id="cookie-accept" class="btn-primary px-4 py-2 rounded-xl text-xs font-semibold">Accept All</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- JAVASCRIPT -->
+<!-- ══════════════════════════════════════════ -->
+<script>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+
+/* ── SIMPLE PLAIN-ENGLISH DATA FOR DEPARTMENT CONNECTIONS ── */
+const bizzloopNetworkData = {
+  core: { name: "BizzLoop Central System", icon: "ti-cpu", status: "Live Sync Active" },
+  departments: [
+    { id: "leads", name: "Lead Enquiries", icon: "ti-magnet", color: "#1451D8", metric: "98% Response Rate", detail: "Automatic website lead capture" },
+    { id: "crm", name: "Customer Records", icon: "ti-users", color: "#04A5C2", metric: "2,845 Contacts", detail: "Live customer notes and status" },
+    { id: "erp", name: "Operations & Tasks", icon: "ti-list-check", color: "#22C55E", metric: "140 Hours Saved", detail: "Automated work tasks and booking" },
+    { id: "finance", name: "Accounts & Billing", icon: "ti-receipt", color: "#1451D8", metric: "£127.4k Processed", detail: "Instant invoicing and payment tracking" },
+    { id: "hr", name: "Team & Staff", icon: "ti-users-group", color: "#04A5C2", metric: "Team Synced", detail: "Staff calendar and job assignments" },
+    { id: "support", name: "Customer Care", icon: "ti-headset", color: "#22C55E", metric: "Quick Reply", detail: "Helpful auto-replies for clients" }
+  ],
+  links: [
+    { from: "leads", to: "crm" },
+    { from: "crm", to: "finance" },
+    { from: "crm", to: "erp" },
+    { from: "erp", to: "hr" },
+    { from: "finance", to: "support" }
+  ]
+};
+
+/* ── Form Submit ── */
+window.handleSubmit=e=>{e.preventDefault();if(e.target.checkValidity()){alert('Demo request sent! Our UK team will contact you shortly.');e.target.reset();closeModal()}else e.target.reportValidity()};
+
+/* ── Modal ── */
+const modal=$('#demo-modal'),mbg=$('#modal-bg'),mbox=$('#modal-box');
+function openModal(e){if(e)e.preventDefault();modal.classList.remove('hidden');requestAnimationFrame(()=>{mbg.style.opacity='1';mbox.style.opacity='1';mbox.style.transform='scale(1)'});document.body.style.overflow='hidden';if(menuOpen)toggleMenu()}
+window.closeModal=function(){mbg.style.opacity='0';mbox.style.opacity='0';mbox.style.transform='scale(0.95)';setTimeout(()=>{modal.classList.add('hidden');document.body.style.overflow=''},300)};
+$$('.open-modal').forEach(b=>b.addEventListener('click',openModal));
+$('.modal-close')?.addEventListener('click',closeModal);
+mbg?.addEventListener('click',closeModal);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.classList.contains('hidden'))closeModal()});
+
+/* ── SPA Router (4 Dedicated Subpages + Home) ── */
+const subpageMap={
+  '#about':'view-about',
+  '#privacy':'view-privacy',
+  '#terms':'view-terms',
+  '#gdpr':'view-gdpr'
+};
+
+function navigate(){
+  const h=location.hash||'';
+  const allViews=$$('.page-view');
+
+  if(subpageMap[h]){
+    allViews.forEach(v=>v.classList.add('hidden'));
+    const targetEl=document.getElementById(subpageMap[h]);
+    if(targetEl){
+      targetEl.classList.remove('hidden');
+      window.scrollTo(0,0);
+    }
+  } else {
+    allViews.forEach(v=>v.classList.add('hidden'));
+    const homeView=$('#view-home');
+    if(homeView) homeView.classList.remove('hidden');
+
+    if(h && h!=='#'){
+      const sectionEl=$(h);
+      if(sectionEl) setTimeout(()=>sectionEl.scrollIntoView({behavior:'smooth'}),50);
+    } else {
+      window.scrollTo(0,0);
+    }
+  }
+  if(menuOpen) toggleMenu();
+}
+window.addEventListener('hashchange',navigate);
+
+/* ── Mobile Menu ── */
+let menuOpen=false;
+const mm=$('#mobile-menu'),mb=$('#menu-btn');
+function toggleMenu(){menuOpen=!menuOpen;if(menuOpen){mm.classList.remove('translate-x-full');mb.innerHTML='<i class="ti ti-x text-2xl"></i>'}else{mm.classList.add('translate-x-full');mb.innerHTML='<i class="ti ti-menu-2 text-2xl"></i>'}}
+mb?.addEventListener('click',toggleMenu);
+$$('.mob-link').forEach(l=>l.addEventListener('click',()=>{if(menuOpen)toggleMenu()}));
+
+/* ── Cookie Consent Logic ── */
+function initCookies() {
+  const cookiePopup = $('#cookie-popup');
+  const acceptBtn = $('#cookie-accept');
+  const rejectBtn = $('#cookie-reject');
+
+  if (cookiePopup && !localStorage.getItem('bizzloop_cookie_consent')) {
+    setTimeout(() => {
+      cookiePopup.classList.remove('translate-y-full', 'opacity-0');
+    }, 1200);
+  }
+
+  function hideCookiePopup(choice) {
+    localStorage.setItem('bizzloop_cookie_consent', choice);
+    if (cookiePopup) {
+      cookiePopup.classList.add('translate-y-full', 'opacity-0');
+    }
+  }
+
+  acceptBtn?.addEventListener('click', () => hideCookiePopup('accepted_all'));
+  rejectBtn?.addEventListener('click', () => hideCookiePopup('accepted_essential'));
+}
+
+/* ── DOMContentLoaded ── */
+document.addEventListener('DOMContentLoaded',()=>{
+  const ye=$('#year');if(ye)ye.textContent=new Date().getFullYear();
+  navigate();
+  initCookies();
+
+  /* Scroll handlers */
+  const sp=$('#scroll-bar'),nav=$('#navbar'),btt=$('#btt'),mcta=$('#mobile-cta');
+  let ticking=false;
+  function onScroll(){
+    if(!ticking){requestAnimationFrame(()=>{
+      const h=document.documentElement.scrollHeight-window.innerHeight;
+      if(sp)sp.style.width=h>0?((window.scrollY/h)*100)+'%':'0';
+      if(nav){if(window.scrollY>30){nav.style.background='rgba(255,255,255,0.88)';nav.style.borderBottom='1px solid rgba(0,0,0,0.06)';nav.style.backdropFilter='blur(20px)';nav.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'}else{nav.style.background='transparent';nav.style.borderBottom='1px solid transparent';nav.style.backdropFilter='none';nav.style.boxShadow='none'}}
+      if(btt){if(window.scrollY>600){btt.style.opacity='1';btt.style.pointerEvents='auto'}else{btt.style.opacity='0';btt.style.pointerEvents='none'}}
+      if(mcta){if(window.scrollY>400){mcta.style.opacity='1';mcta.style.pointerEvents='auto'}else{mcta.style.opacity='0';mcta.style.pointerEvents='none'}}
+      ticking=false
+    });ticking=true}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  btt?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* Reveal */
+  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  $$('.reveal').forEach(el=>ro.observe(el));
+
+  /* Counters */
+  const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,target=+el.dataset.target,dur=2000,start=performance.now();function step(now){const p=Math.min((now-start)/dur,1),eased=1-Math.pow(1-p,3),v=Math.round(eased*target);el.textContent=v>=1000?v.toLocaleString():v;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step);co.unobserve(el)}})},{threshold:0.5});
+  $$('.counter').forEach(el=>co.observe(el));
+
+  /* ROI Slider */
+  const sl=$('#hours-slider'),sv=$('#slider-val'),so=$('#savings-output');
+  if(sl)sl.addEventListener('input',()=>{sv.textContent=sl.value+' hrs';so.textContent=Math.round(sl.value*4*0.65)});
+
+  /* FAQ Accordion Window Opening Gradient Animations */
+  $$('.faq-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.parentElement;
+      const ans=item.querySelector('.faq-answer');
+      const icon=btn.querySelector('.faq-icon');
+      const isOpen=btn.getAttribute('aria-expanded')==='true';
+      
+      $$('.faq-item').forEach(fi=>{
+        fi.querySelector('.faq-answer').style.maxHeight='0';
+        fi.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+        fi.querySelector('.faq-icon').style.transform='rotate(0deg)';
+        fi.classList.remove('faq-active');
+      });
+      
+      if(!isOpen){
+        ans.style.maxHeight=ans.scrollHeight+'px';
+        btn.setAttribute('aria-expanded','true');
+        icon.style.transform='rotate(45deg)';
+        item.classList.add('faq-active');
+      }
+    });
+  });
+
+  /* ── FULL WEBSITE 3D BACKGROUND CANVAS ANIMATION ── */
+  const bgCanvas = $('#bg-3d-canvas');
+  if (bgCanvas) {
+    const bgCtx = bgCanvas.getContext('2d');
+    let bgW, bgH;
+    let bgNodes = [];
+
+    function resizeBg() {
+      bgW = bgCanvas.width = window.innerWidth;
+      bgH = bgCanvas.height = window.innerHeight;
+      initBgNodes();
+    }
+
+    function initBgNodes() {
+      bgNodes = [];
+      const nodeCount = Math.min(Math.floor(bgW / 35), 45);
+      for (let i = 0; i < nodeCount; i++) {
+        bgNodes.push({
+          x: Math.random() * bgW,
+          y: Math.random() * bgH,
+          z: Math.random() * 200 + 50,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          radius: Math.random() * 2.5 + 1,
+          color: Math.random() > 0.5 ? 'rgba(20, 81, 216, ' : 'rgba(4, 165, 194, '
+        });
+      }
+    }
+
+    function animateBg() {
+      bgCtx.clearRect(0, 0, bgW, bgH);
+
+      // Render floating 3D ambient nodes & interconnect lines
+      for (let i = 0; i < bgNodes.length; i++) {
+        const n = bgNodes[i];
+        n.x += n.vx;
+        n.y += n.vy;
+
+        if (n.x < 0) n.x = bgW;
+        if (n.x > bgW) n.x = 0;
+        if (n.y < 0) n.y = bgH;
+        if (n.y > bgH) n.y = 0;
+
+        const scale = 200 / n.z;
+        const opacity = Math.min(scale * 0.08, 0.12);
+
+        bgCtx.beginPath();
+        bgCtx.arc(n.x, n.y, n.radius * scale, 0, Math.PI * 2);
+        bgCtx.fillStyle = n.color + opacity + ')';
+        bgCtx.fill();
+
+        for (let j = i + 1; j < bgNodes.length; j++) {
+          const n2 = bgNodes[j];
+          const dx = n.x - n2.x;
+          const dy = n.y - n2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            bgCtx.beginPath();
+            bgCtx.moveTo(n.x, n.y);
+            bgCtx.lineTo(n2.x, n2.y);
+            bgCtx.strokeStyle = 'rgba(20, 81, 216, ' + (0.04 * (1 - dist / 140)) + ')';
+            bgCtx.lineWidth = 0.8;
+            bgCtx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateBg);
+    }
+
+    window.addEventListener('resize', resizeBg);
+    resizeBg();
+    animateBg();
+  }
+
+  /* ── 3D DEPARTMENT CONNECTIONS ENGINE ── */
+  const container = $('#dept-nodes-container');
+  const canvas = $('#interlink-canvas');
+
+  if (container && canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height, centerX, centerY;
+    let activeLinkIdx = 0;
+    let nodeCoords = {};
+    let packets = [];
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      width = canvas.width = rect.width;
+      height = canvas.height = rect.height;
+      centerX = width / 2;
+      centerY = height / 2;
+      renderNodes();
+    }
+
+    function renderNodes() {
+      container.innerHTML = '';
+      nodeCoords = {};
+
+      // 1. Central Core Node
+      const coreDiv = document.createElement('div');
+      coreDiv.className = 'absolute z-30 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-brand-500 via-accent-cyan to-accent-green p-1 shadow-2xl flex items-center justify-center float';
+      coreDiv.style.left = `calc(50% - 48px)`;
+      coreDiv.style.top = `calc(50% - 48px)`;
+      coreDiv.innerHTML = `
+        <div class="w-full h-full rounded-full bg-dark text-white flex flex-col items-center justify-center p-2 text-center border border-white/20">
+          <i class="${bizzloopNetworkData.core.icon} text-xl sm:text-2xl text-accent-cyan"></i>
+          <span class="text-[9px] font-bold tracking-tight text-white mt-1 leading-none">BizzLoop</span>
+          <span class="text-[7px] text-accent-green font-mono mt-0.5">CORE SYSTEM</span>
+        </div>
+      `;
+      container.appendChild(coreDiv);
+      nodeCoords['core'] = { x: centerX, y: centerY };
+
+      // 2. Peripheral Department Nodes
+      const depts = bizzloopNetworkData.departments;
+      const count = depts.length;
+      const radiusX = Math.min(centerX - 60, 260);
+      const radiusY = Math.min(centerY - 50, 160);
+
+      depts.forEach((dept, i) => {
+        const angle = (i * (2 * Math.PI / count)) - (Math.PI / 2);
+        const x = centerX + radiusX * Math.cos(angle);
+        const y = centerY + radiusY * Math.sin(angle);
+        nodeCoords[dept.id] = { x, y };
+
+        const nodeDiv = document.createElement('div');
+        nodeDiv.className = `dept-node absolute z-30 w-28 sm:w-36 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/80 shadow-lg`;
+        nodeDiv.style.left = `${x - (window.innerWidth < 640 ? 56 : 72)}px`;
+        nodeDiv.style.top = `${y - 32}px`;
+        nodeDiv.dataset.deptId = dept.id;
+
+        nodeDiv.innerHTML = `
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white shrink-0 shadow-sm" style="background:${dept.color}">
+              <i class="${dept.icon} text-sm"></i>
+            </div>
+            <div class="truncate">
+              <h4 class="text-[11px] font-bold text-dark truncate leading-tight">${dept.name}</h4>
+              <span class="text-[8px] text-slate-400 block truncate font-medium">${dept.metric}</span>
+            </div>
+          </div>
+        `;
+
+        nodeDiv.addEventListener('mouseenter', () => triggerNodeInteraction(dept.id));
+        nodeDiv.addEventListener('click', () => triggerNodeInteraction(dept.id));
+        container.appendChild(nodeDiv);
+      });
+    }
+
+    function spawnPacket(fromId, toId, color) {
+      const start = nodeCoords[fromId] || nodeCoords['core'];
+      const end = nodeCoords[toId] || nodeCoords['core'];
+      if (start && end) {
+        packets.push({
+          x: start.x,
+          y: start.y,
+          startX: start.x,
+          startY: start.y,
+          endX: end.x,
+          endY: end.y,
+          progress: 0,
+          speed: 0.012 + Math.random() * 0.008,
+          color: color || '#1451D8'
+        });
+      }
+    }
+
+    function triggerNodeInteraction(deptId) {
+      const dept = bizzloopNetworkData.departments.find(d => d.id === deptId);
+      if (dept) {
+        $$('.dept-node').forEach(n => n.classList.remove('active'));
+        const activeCard = $(`[data-dept-id="${deptId}"]`);
+        if (activeCard) activeCard.classList.add('active');
+        spawnPacket(deptId, 'core', dept.color);
+      }
+    }
+
+    function animateNetwork() {
+      ctx.clearRect(0, 0, width, height);
+
+      const depts = bizzloopNetworkData.departments;
+      depts.forEach(dept => {
+        const p = nodeCoords[dept.id];
+        if (p && nodeCoords['core']) {
+          ctx.beginPath();
+          ctx.moveTo(nodeCoords['core'].x, nodeCoords['core'].y);
+          ctx.lineTo(p.x, p.y);
+          ctx.strokeStyle = 'rgba(20, 81, 216, 0.12)';
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([4, 4]);
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+      });
+
+      bizzloopNetworkData.links.forEach(link => {
+        const p1 = nodeCoords[link.from];
+        const p2 = nodeCoords[link.to];
+        if (p1 && p2) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(4, 165, 194, 0.15)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      });
+
+      for (let i = packets.length - 1; i >= 0; i--) {
+        const pkt = packets[i];
+        pkt.progress += pkt.speed;
+
+        pkt.x = pkt.startX + (pkt.endX - pkt.startX) * pkt.progress;
+        pkt.y = pkt.startY + (pkt.endY - pkt.startY) * pkt.progress;
+
+        ctx.beginPath();
+        ctx.arc(pkt.x, pkt.y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = pkt.color;
+        ctx.shadowColor = pkt.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        if (pkt.progress >= 1) {
+          packets.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(animateNetwork);
+    }
+
+    setInterval(() => {
+      const link = bizzloopNetworkData.links[activeLinkIdx];
+      if (link) {
+        const dept = bizzloopNetworkData.departments.find(d => d.id === link.from);
+        const color = dept ? dept.color : '#1451D8';
+        spawnPacket(link.from, link.to, color);
+        spawnPacket(link.from, 'core', '#04A5C2');
+      }
+      activeLinkIdx = (activeLinkIdx + 1) % bizzloopNetworkData.links.length;
+    }, 2200);
+
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+    animateNetwork();
+  }
+});
+})();
+</script>
+</body>
+</html>
