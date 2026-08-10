@@ -252,6 +252,49 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
 </div>
 
 <!-- ══════════════════════════════════════════ -->
+<!-- CAREER APPLICATION MODAL -->
+<!-- ══════════════════════════════════════════ -->
+<div id="career-modal" class="fixed inset-0 z-[220] hidden">
+  <div id="career-modal-bg" class="absolute inset-0 bg-dark/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+  <div class="relative z-10 flex items-center justify-center min-h-full p-4 sm:p-6">
+    <div id="career-modal-box" class="glass-strong w-full max-w-2xl rounded-3xl p-6 sm:p-10 opacity-0 scale-95 transition-all duration-300 max-h-[95vh] overflow-y-auto relative">
+      <button onclick="closeCareerModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors"><i class="ti ti-x text-lg"></i></button>
+      
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-2">BizzLoop Careers</div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-dark mb-1">Apply for <span id="career-job-title" class="text-brand-500">Position</span></h2>
+        <p class="text-xs text-slate-500">Join our team building UK business operating systems. Submit your application below.</p>
+      </div>
+
+      <form id="career-form" onsubmit="handleCareerSubmit(event)" class="space-y-4">
+        <input type="hidden" id="career-role-input" name="role" value="General Application">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Full Name *</label><input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Email Address *</label><input type="email" required placeholder="sarah@example.co.uk" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Phone / WhatsApp *</label><input type="tel" required placeholder="+44 7586 476247" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Employment Type *</label>
+            <select required id="career-type-select" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all">
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Internship">Internship (Paid)</option>
+              <option value="Traineeship">Traineeship (Paid)</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Primary Background / Industry *</label><input type="text" required placeholder="e.g. Business Operations, Marketing, Tech" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+          <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Resume / Portfolio / LinkedIn Link *</label><input type="text" required placeholder="https://linkedin.com/in/yourprofile or portfolio URL" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all"></div>
+        </div>
+        <div><label class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Cover Note / Why BizzLoop?</label><textarea rows="3" placeholder="Tell us briefly about your experience, goals, and why you would be a great fit for BizzLoop..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-dark placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all resize-none"></textarea></div>
+        <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
 <!-- MAIN VIEWS CONTAINER -->
 <!-- ══════════════════════════════════════════ -->
 <main id="main-view">
@@ -723,6 +766,187 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
   </div>
 </div>
 
+<!-- 5. CAREERS & INTERNSHIPS SUBPAGE -->
+<div id="view-careers" class="page-view hidden py-28 sm:py-36 px-5 sm:px-8 min-h-screen">
+  <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Join BizzLoop</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-dark tracking-tight mb-4">Careers, Internships & Traineeships</h1>
+      <p class="text-slate-500 text-base leading-relaxed">Help us build the next generation of business operating systems for UK SMEs. Work on real projects with competitive UK salaries, modern perks, and rapid career progression.</p>
+    </div>
+
+    <!-- Perks & Culture -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm sub-link-card text-center">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center mx-auto mb-3"><i class="ti ti-map-pin text-xl"></i></div>
+        <h4 class="text-xs font-bold text-dark mb-1">UK Hybrid & Remote</h4>
+        <p class="text-[11px] text-slate-400 leading-normal">London, Manchester & remote working flexibility.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm sub-link-card text-center">
+        <div class="w-10 h-10 rounded-xl bg-cyan-50 text-accent-cyan flex items-center justify-center mx-auto mb-3"><i class="ti ti-currency-pound text-xl"></i></div>
+        <h4 class="text-xs font-bold text-dark mb-1">Competitive UK Pay</h4>
+        <p class="text-[11px] text-slate-400 leading-normal">Top market salaries + performance bonuses.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm sub-link-card text-center">
+        <div class="w-10 h-10 rounded-xl bg-green-50 text-accent-green flex items-center justify-center mx-auto mb-3"><i class="ti ti-school text-xl"></i></div>
+        <h4 class="text-xs font-bold text-dark mb-1">£1,500 Learning Fund</h4>
+        <p class="text-[11px] text-slate-400 leading-normal">Annual budget for courses, books, & certifications.</p>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm sub-link-card text-center">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center mx-auto mb-3"><i class="ti ti-heart-handshake text-xl"></i></div>
+        <h4 class="text-xs font-bold text-dark mb-1">Full Benefits</h4>
+        <p class="text-[11px] text-slate-400 leading-normal">28 days paid leave, pension, & health cover.</p>
+      </div>
+    </div>
+
+    <!-- Section: Full-Time Professions -->
+    <div class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-dark">Full-Time Professional Roles</h2>
+          <p class="text-xs text-slate-400">Business management, operations, and engineering roles.</p>
+        </div>
+        <span class="text-xs font-semibold text-brand-500 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">4 Open Positions</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <!-- Job 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">Business Management</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£45,000 – £55,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">Operations & Client Success Lead</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Lead client onboarding, structure operational workflows for UK SMEs, and oversee client success teams across our platform.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> London / Hybrid</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-clock text-accent-cyan"></i> Full-Time</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('Operations & Client Success Lead', 'Full-Time')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">Technical / Engineering</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£65,000 – £80,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">Senior Full-Stack Business Systems Engineer</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Build and scale high performance web apps, 3D interactive visualizations, and automated database integrations for UK businesses.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> London / Remote UK</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-clock text-accent-cyan"></i> Full-Time</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('Senior Full-Stack Business Systems Engineer', 'Full-Time')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">Client Operations</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£38,000 – £48,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">SME Implementation Specialist</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Work directly with UK business owners to digitize customer records, set up billing routines, and automate office tasks.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> Manchester / Hybrid</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-clock text-accent-cyan"></i> Full-Time</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('SME Implementation Specialist', 'Full-Time')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">Product Management</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£40,000 – £50,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">Product Operations Analyst</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Analyse platform usage metrics, gather feedback from UK business clients, and refine user experience and feature releases.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> London / Hybrid</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-clock text-accent-cyan"></i> Full-Time</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('Product Operations Analyst', 'Full-Time')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Internships & Traineeships -->
+    <div class="space-y-6 pt-6 border-t border-slate-100">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-dark">Internships & Traineeships</h2>
+          <p class="text-xs text-slate-400">Paid practical training roles in marketing, business, and content creation.</p>
+        </div>
+        <span class="text-xs font-semibold text-accent-cyan bg-cyan-50 px-3 py-1 rounded-full border border-cyan-100">2 Paid Programmes</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <!-- Internship 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-brand-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-100">Paid Internship</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£22,000 – £26,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">Growth Marketing & Content Intern</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Gain hands-on real-world experience creating UK business case studies, SEO articles, email campaigns, and growth strategies.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> London / Remote</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-school text-accent-green"></i> Training & Mentorship</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('Growth Marketing & Content Intern', 'Internship')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+
+        <!-- Traineeship 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-cyan-100 shadow-sm sub-link-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-accent-cyan uppercase tracking-wider bg-cyan-50 px-2.5 py-1 rounded-lg border border-cyan-100">Paid Traineeship</span>
+              <span class="text-xs font-bold text-emerald-600 font-mono">£20,000 – £24,000 / yr</span>
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2">Social Media & Community Specialist Trainee</h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Learn digital brand storytelling, create engaging video content, and foster our online community of UK small business founders.</p>
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-400 mb-6">
+              <span class="flex items-center gap-1"><i class="ti ti-map-pin text-brand-500"></i> Hybrid UK</span>
+              <span>·</span>
+              <span class="flex items-center gap-1"><i class="ti ti-sparkles text-accent-cyan"></i> Real Work Experience</span>
+            </div>
+          </div>
+          <button onclick="applyForRole('Social Media & Community Specialist Trainee', 'Traineeship')" class="btn-primary w-full py-3 rounded-xl font-semibold text-xs text-center">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Application Box -->
+    <div class="bg-gradient-to-r from-blue-50/80 via-cyan-50/40 to-emerald-50/30 rounded-3xl p-8 border border-brand-200 text-center">
+      <h3 class="text-xl font-bold text-dark mb-2">Don't see your exact role?</h3>
+      <p class="text-xs text-slate-500 max-w-lg mx-auto mb-6">We are always looking for talented individuals passionate about UK business growth. Send us a general application.</p>
+      <button onclick="applyForRole('General Application', 'Full-Time')" class="btn-primary px-8 py-3.5 rounded-full font-semibold text-xs inline-flex items-center gap-2">Submit General Application <i class="ti ti-arrow-right"></i></button>
+    </div>
+
+    <div class="pt-4 text-center">
+      <a href="#" class="inline-flex items-center gap-2 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+    </div>
+  </div>
+</div>
+
 </main> <!-- End #main-view -->
 
 <!-- ══════════════════════════════════════════ -->
@@ -761,11 +985,12 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
         </ul>
       </div>
 
-      <!-- 4 SPA Subpages Footer Links -->
+      <!-- 5 SPA Subpages Footer Links -->
       <div>
         <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Company & Legal</h4>
         <ul class="space-y-2.5 text-sm text-slate-400">
           <li><a href="#about" class="hover:text-white transition-colors">About BizzLoop</a></li>
+          <li><a href="#careers" class="hover:text-white transition-colors flex items-center justify-between"><span>Careers & Internships</span> <span class="bg-brand-500/20 text-brand-300 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-brand-500/30">We're hiring</span></a></li>
           <li><a href="#privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
           <li><a href="#terms" class="hover:text-white transition-colors">Terms & Conditions</a></li>
           <li><a href="#gdpr" class="hover:text-white transition-colors">UK GDPR Compliance</a></li>
@@ -791,6 +1016,7 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
       <div class="text-xs text-slate-500">&copy; <span id="year"></span> BIZZLOOP LTD. All rights reserved.</div>
       <div class="flex flex-wrap justify-center gap-5 text-xs text-slate-400">
         <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#careers" class="hover:text-white transition-colors">Careers</a>
         <a href="#privacy" class="hover:text-white transition-colors">Privacy</a>
         <a href="#terms" class="hover:text-white transition-colors">Terms</a>
         <a href="#gdpr" class="hover:text-white transition-colors">UK GDPR</a>
@@ -894,6 +1120,47 @@ window.closeSuccessModal=function(){
   }
 };
 
+window.applyForRole=function(roleTitle, empType){
+  const modal=$('#career-modal'), modalBg=$('#career-modal-bg'), modalBox=$('#career-modal-box');
+  const titleEl=$('#career-job-title'), inputEl=$('#career-role-input'), selectEl=$('#career-type-select');
+  if(titleEl) titleEl.textContent=roleTitle;
+  if(inputEl) inputEl.value=roleTitle;
+  if(selectEl && empType) selectEl.value=empType;
+  if(modal){
+    modal.classList.remove('hidden');
+    requestAnimationFrame(()=>{
+      modalBg.style.opacity='1';
+      modalBox.style.opacity='1';
+      modalBox.style.transform='scale(1)';
+    });
+    document.body.style.overflow='hidden';
+  }
+};
+
+window.closeCareerModal=function(){
+  const modal=$('#career-modal'), modalBg=$('#career-modal-bg'), modalBox=$('#career-modal-box');
+  if(modal){
+    modalBg.style.opacity='0';
+    modalBox.style.opacity='0';
+    modalBox.style.transform='scale(0.95)';
+    setTimeout(()=>{
+      modal.classList.add('hidden');
+      document.body.style.overflow='';
+    },300);
+  }
+};
+
+window.handleCareerSubmit=function(e){
+  e.preventDefault();
+  if(e.target.checkValidity()){
+    e.target.reset();
+    closeCareerModal();
+    openSuccessModal();
+  } else {
+    e.target.reportValidity();
+  }
+};
+
 /* ── Modal ── */
 const modal=$('#demo-modal'),mbg=$('#modal-bg'),mbox=$('#modal-box');
 function openModal(e){if(e)e.preventDefault();modal.classList.remove('hidden');requestAnimationFrame(()=>{mbg.style.opacity='1';mbox.style.opacity='1';mbox.style.transform='scale(1)'});document.body.style.overflow='hidden';if(menuOpen)toggleMenu()}
@@ -903,9 +1170,10 @@ $('.modal-close')?.addEventListener('click',closeModal);
 mbg?.addEventListener('click',closeModal);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.classList.contains('hidden'))closeModal()});
 
-/* ── SPA Router (4 Dedicated Subpages + Home) ── */
+/* ── SPA Router (5 Dedicated Subpages + Home) ── */
 const subpageMap={
   '#about':'view-about',
+  '#careers':'view-careers',
   '#privacy':'view-privacy',
   '#terms':'view-terms',
   '#gdpr':'view-gdpr'
