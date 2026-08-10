@@ -861,8 +861,22 @@ const bizzloopNetworkData = {
   ]
 };
 
-/* ── Form Submit ── */
-window.handleSubmit=e=>{e.preventDefault();if(e.target.checkValidity()){alert('Demo request sent! Our UK team will contact you shortly.');e.target.reset();closeModal()}else e.target.reportValidity()};
+/* ── Form Submit (Ready for Google Sheets / Frappe CRM Webhook) ── */
+window.handleSubmit=e=>{
+  e.preventDefault();
+  if(e.target.checkValidity()){
+    /* 
+      To connect to your Frappe site ("BizzLoop") or Google Sheets CRM:
+      const formData = new FormData(e.target);
+      fetch('YOUR_GOOGLE_SHEETS_WEBHOOK_OR_FRAPPE_API_URL', { method: 'POST', body: formData });
+    */
+    alert('Demo request sent! Our UK team will contact you shortly.');
+    e.target.reset();
+    closeModal();
+  } else {
+    e.target.reportValidity();
+  }
+};
 
 /* ── Modal ── */
 const modal=$('#demo-modal'),mbg=$('#modal-bg'),mbox=$('#modal-box');
