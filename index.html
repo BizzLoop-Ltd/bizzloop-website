@@ -235,6 +235,23 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
 </div>
 
 <!-- ══════════════════════════════════════════ -->
+<!-- SUCCESS POP-UP WINDOW -->
+<!-- ══════════════════════════════════════════ -->
+<div id="success-modal" class="fixed inset-0 z-[250] hidden">
+  <div id="success-bg" class="absolute inset-0 bg-dark/50 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+  <div class="relative z-10 flex items-center justify-center min-h-full p-4">
+    <div id="success-box" class="glass-strong w-full max-w-sm rounded-3xl p-8 text-center opacity-0 scale-90 transition-all duration-300 border border-emerald-100 shadow-2xl relative">
+      <div class="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-500 flex items-center justify-center mx-auto mb-4 text-3xl shadow-lg shadow-emerald-500/10">
+        <i class="ti ti-check"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-dark mb-2">Submitted, thank you!</h3>
+      <p class="text-xs text-slate-500 leading-relaxed mb-6">Our UK team has received your enquiry. We will review your details and be in touch within 24 hours.</p>
+      <button onclick="closeSuccessModal()" class="btn-primary w-full py-3 rounded-xl font-semibold text-sm">Great, thank you</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
 <!-- MAIN VIEWS CONTAINER -->
 <!-- ══════════════════════════════════════════ -->
 <main id="main-view">
@@ -529,10 +546,10 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
     </div>
 
     <div class="grid md:grid-cols-3 gap-5 items-stretch">
-      <!-- Core OS -->
+      <!-- Core -->
       <div class="reveal sub-link-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 flex flex-col">
         <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Startups & Consultants</div>
-        <h3 class="text-xl font-extrabold text-dark mb-1">Core OS</h3>
+        <h3 class="text-xl font-extrabold text-dark mb-1">Core</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Startups, Sole Traders & Consultants</p>
         <div class="mb-6"><span class="text-4xl font-bold text-dark">£149</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£249 one-off setup</div></div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
@@ -542,42 +559,42 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Instant Form Enquiry Notifications</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Simple Business Performance Summary</li>
         </ul>
-        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Get Started with Core OS</button>
+        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Get Started with Core</button>
       </div>
 
-      <!-- Growth OS -->
+      <!-- Growth -->
       <div class="reveal reveal-d1 popular-ring sub-link-card bg-white rounded-3xl p-6 sm:p-8 flex flex-col md:-translate-y-4 relative z-10 shadow-xl shadow-brand-500/8">
         <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-accent-cyan text-white text-[9px] font-bold uppercase tracking-widest py-1 px-4 rounded-b-lg">MOST POPULAR</div>
         <div class="text-[10px] font-bold text-brand-500 uppercase tracking-wider mt-3 mb-1">Growing SMEs & Agencies</div>
-        <h3 class="text-xl font-extrabold text-brand-500 mb-1">Growth OS</h3>
+        <h3 class="text-xl font-extrabold text-brand-500 mb-1">Growth</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Growing Businesses, SMEs & Agencies</p>
         <div class="mb-6"><span class="text-4xl font-bold text-dark">£349</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£599 one-off setup</div></div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-700 font-medium">
-          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i><strong>Includes Everything in Core OS</strong></li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i><strong>Includes Everything in Core</strong></li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Staff Records, Team & Attendance Management</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Project Planning & Task Collaboration</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Inventory, Stock & Basic Finance Tracking</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Advanced Automations & Workflow Connections</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Weekly Performance & Executive Reports</li>
         </ul>
-        <button class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Deploy Growth OS</button>
+        <button class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm open-modal">Deploy Growth</button>
       </div>
 
-      <!-- Elite OS -->
+      <!-- Enterprise -->
       <div class="reveal reveal-d2 sub-link-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 flex flex-col">
         <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Enterprises & Multi-Branch</div>
-        <h3 class="text-xl font-extrabold text-dark mb-1">Elite OS</h3>
+        <h3 class="text-xl font-extrabold text-dark mb-1">Enterprise</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Large Businesses & Multi-Branch Operations</p>
         <div class="mb-6"><span class="text-4xl font-bold text-dark">£749</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£1,399 one-off setup</div></div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i><strong>Includes Everything in Growth OS</strong></li>
+          <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i><strong>Includes Everything in Growth</strong></li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Complete All-in-One Operations (Finance, Sales & Purchasing)</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Custom Operations & Business-Specific Workflows</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Executive Business Intelligence Dashboards</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Multi-Company & Multi-Branch Enterprise Support</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Dedicated Priority Technical Support & Setup</li>
         </ul>
-        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal hover:border-accent-cyan/30">Deploy Elite OS</button>
+        <button class="btn-secondary w-full py-3.5 rounded-xl font-semibold text-sm open-modal hover:border-accent-cyan/30">Deploy Enterprise</button>
       </div>
     </div>
   </div>
@@ -864,7 +881,7 @@ const bizzloopNetworkData = {
   ]
 };
 
-/* ── Form Submit (Ready for Google Sheets / Frappe CRM Webhook) ── */
+/* ── Form Submit & Success Pop-up Window ── */
 window.handleSubmit=e=>{
   e.preventDefault();
   if(e.target.checkValidity()){
@@ -873,11 +890,33 @@ window.handleSubmit=e=>{
       const formData = new FormData(e.target);
       fetch('YOUR_GOOGLE_SHEETS_WEBHOOK_OR_FRAPPE_API_URL', { method: 'POST', body: formData });
     */
-    alert('Demo request sent! Our UK team will contact you shortly.');
     e.target.reset();
     closeModal();
+    openSuccessModal();
   } else {
     e.target.reportValidity();
+  }
+};
+
+window.openSuccessModal=function(){
+  const sm=$('#success-modal'),sbg=$('#success-bg'),sbox=$('#success-box');
+  if(sm){
+    sm.classList.remove('hidden');
+    requestAnimationFrame(()=>{
+      sbg.style.opacity='1';
+      sbox.style.opacity='1';
+      sbox.style.transform='scale(1)';
+    });
+  }
+};
+
+window.closeSuccessModal=function(){
+  const sm=$('#success-modal'),sbg=$('#success-bg'),sbox=$('#success-box');
+  if(sm){
+    sbg.style.opacity='0';
+    sbox.style.opacity='0';
+    sbox.style.transform='scale(0.9)';
+    setTimeout(()=>{sm.classList.add('hidden')},300);
   }
 };
 
