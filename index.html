@@ -8,10 +8,63 @@
 <meta name="keywords" content="UK Business Operating System, UK SME CRM, UK Business ERP, UK Business Automation, BizzLoop Ltd">
 <meta name="geo.region" content="GB">
 <meta name="geo.placename" content="United Kingdom">
+<link rel="canonical" href="https://bizzloop.co.uk/">
 <meta property="og:title" content="BizzLoop Ltd | Premium Business Operating Systems for UK SMEs">
 <meta property="og:description" content="Unified business software for UK SMEs. Automate daily operations, CRM, ERP, and accounts.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://bizzloop.co.uk/">
 <meta property="og:locale" content="en_GB">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bizzloop.co.uk/#organization",
+      "name": "BIZZLOOP LTD",
+      "url": "https://bizzloop.co.uk/",
+      "logo": "https://bizzloop.co.uk/logo.png",
+      "email": "info@bizzloop.co.uk",
+      "sameAs": [
+        "https://www.linkedin.com/company/bizzloopltd/",
+        "https://www.instagram.com/bizzloopltd?utm_source=qr"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BizzLoop Business Operating System",
+      "operatingSystem": "Web-based",
+      "applicationCategory": "BusinessApplication",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter Plan",
+          "price": "149.00",
+          "priceCurrency": "GBP",
+          "billingDuration": "P1M"
+        },
+        {
+          "@type": "Offer",
+          "name": "Growth Plan",
+          "price": "349.00",
+          "priceCurrency": "GBP",
+          "billingDuration": "P1M"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise Plan",
+          "price": "749.00",
+          "priceCurrency": "GBP",
+          "billingDuration": "P1M"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Crect x='25' y='20' width='70' height='44' rx='22' stroke='%231451D8' stroke-width='13'/%3E%3Crect x='25' y='56' width='70' height='44' rx='22' stroke='%2304A5C2' stroke-width='13'/%3E%3Cpath d='M25 42 A22 22 0 0 1 47 20 H73 A22 22 0 0 1 95 42' stroke='%231451D8' stroke-width='13' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -562,10 +615,23 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
 <!-- ── PRICING ── -->
 <section id="pricing" class="py-24 sm:py-32 px-5 sm:px-8">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16 sm:mb-20">
+    <div class="text-center mb-10">
       <p class="reveal text-[11px] font-semibold text-brand-500 uppercase tracking-widest mb-3">Pricing Plans</p>
-      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-5">Clear, simple pricing for UK SMEs.</h2>
-      <p class="reveal reveal-d1 text-slate-500 max-w-lg mx-auto text-sm">No hidden fees. No long contracts. Scale your Operating System as you grow.</p>
+      <h2 class="reveal text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-dark mb-4">Clear, simple pricing for UK SMEs.</h2>
+      <p class="reveal reveal-d1 text-slate-500 max-w-lg mx-auto text-sm">No setup fees. No long contracts. Scale your Business Operating System as you grow.</p>
+    </div>
+
+    <!-- Monthly / Yearly Billing Toggle -->
+    <div class="reveal reveal-d2 flex items-center justify-center gap-3 mb-12">
+      <span id="billing-label-monthly" class="text-xs font-bold text-dark transition-colors">Billed Monthly</span>
+      <button id="pricing-toggle-btn" role="switch" aria-checked="false" onclick="toggleBillingPeriod()" class="relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-slate-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+        <span class="sr-only">Toggle annual billing</span>
+        <span id="toggle-thumb" class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+      </button>
+      <span id="billing-label-yearly" class="text-xs font-medium text-slate-400 flex items-center gap-1.5 transition-colors">
+        <span>Billed Yearly</span>
+        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200">Save 16.7%</span>
+      </span>
     </div>
 
     <div class="grid md:grid-cols-3 gap-5 items-stretch">
@@ -574,7 +640,16 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
         <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Startups & Consultants</div>
         <h3 class="text-xl font-extrabold text-dark mb-1">Starter</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Startups, Sole Traders & Consultants</p>
-        <div class="mb-6"><span class="text-4xl font-bold text-dark">£149</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£249 one-off setup</div></div>
+        <div class="mb-6">
+          <div class="flex items-baseline gap-1">
+            <span class="price-amount-starter text-4xl font-bold text-dark">£149</span>
+            <span class="price-period-starter text-slate-400 font-medium text-sm">/month</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1 font-medium">exc. VAT</div>
+          <div class="yearly-savings-badge hidden mt-2">
+            <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 inline-block">2 months free · Save 16.7%</span>
+          </div>
+        </div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Centralised Business Workspace & Dashboard</li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Customer Leads & Contact Management System</li>
@@ -591,7 +666,16 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
         <div class="text-[10px] font-bold text-brand-500 uppercase tracking-wider mt-3 mb-1">Growing SMEs & Agencies</div>
         <h3 class="text-xl font-extrabold text-brand-500 mb-1">Growth</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Growing Businesses, SMEs & Agencies</p>
-        <div class="mb-6"><span class="text-4xl font-bold text-dark">£349</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£599 one-off setup</div></div>
+        <div class="mb-6">
+          <div class="flex items-baseline gap-1">
+            <span class="price-amount-growth text-4xl font-bold text-dark">£349</span>
+            <span class="price-period-growth text-slate-400 font-medium text-sm">/month</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1 font-medium">exc. VAT</div>
+          <div class="yearly-savings-badge hidden mt-2">
+            <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 inline-block">2 months free · Save 16.7%</span>
+          </div>
+        </div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-700 font-medium">
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i><strong>Includes Everything in Starter</strong></li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-brand-500 mt-0.5"></i>Staff Records, Team & Attendance Management</li>
@@ -608,7 +692,16 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
         <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Enterprises & Multi-Branch</div>
         <h3 class="text-xl font-extrabold text-dark mb-1">Enterprise</h3>
         <p class="text-[11px] text-slate-400 font-medium mb-5">Target: Large Businesses & Multi-Branch Operations</p>
-        <div class="mb-6"><span class="text-4xl font-bold text-dark">£749</span><span class="text-slate-400 font-medium text-sm">/month</span><div class="text-[11px] text-slate-400 mt-1">£1,399 one-off setup</div></div>
+        <div class="mb-6">
+          <div class="flex items-baseline gap-1">
+            <span class="price-amount-enterprise text-4xl font-bold text-dark">£749</span>
+            <span class="price-period-enterprise text-slate-400 font-medium text-sm">/month</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1 font-medium">exc. VAT</div>
+          <div class="yearly-savings-badge hidden mt-2">
+            <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 inline-block">2 months free · Save 16.7%</span>
+          </div>
+        </div>
         <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i><strong>Includes Everything in Growth</strong></li>
           <li class="flex gap-2.5 items-start"><i class="ti ti-check text-accent-cyan mt-0.5"></i>Complete All-in-One Operations (Finance, Sales & Purchasing)</li>
@@ -716,59 +809,152 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
 </div>
 
 <!-- 2. PRIVACY POLICY SUBPAGE -->
-<div id="view-privacy" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
-  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Legal Notice</div>
-    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Privacy Policy</h1>
-    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
-    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
-      <p>At BizzLoop Ltd, we take your privacy seriously. This document explains how we collect, use, and protect your information when you use our website or services.</p>
-      <h3 class="text-base font-bold text-dark">1. Information We Collect</h3>
-      <p>We collect contact details such as name, work email address, phone number, and business name when voluntarily submitted through our enquiry and demo forms.</p>
-      <h3 class="text-base font-bold text-dark">2. How We Use Your Information</h3>
-      <p>We use your information solely to deliver our software services, communicate regarding your consultation request, and improve website functionality.</p>
-      <h3 class="text-base font-bold text-dark">3. Data Security</h3>
-      <p>We implement robust technical and organizational security controls to protect your data against unauthorized access or disclosure.</p>
+<div id="view-privacy" class="page-view hidden py-28 sm:py-36 px-5 sm:px-8 min-h-screen">
+  <!-- INTERNAL TODO: Final legal text should be reviewed by qualified UK legal & data protection professionals before relying on it as definitive legal advice. -->
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-100 shadow-sm">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Privacy & Data Governance</div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-dark mb-2">Privacy Policy</h1>
+    <p class="text-xs text-slate-400 mb-8 font-mono">Last Updated: August 2026 · BIZZLOOP LTD (Company No. 17319641)</p>
+    
+    <div class="text-sm text-slate-600 space-y-6 leading-relaxed">
+      <p class="text-base text-slate-700 font-medium">BIZZLOOP LTD ("BizzLoop", "we", "us", or "our") is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, process, store, and safeguard personal data when you visit our website at <a href="https://bizzloop.co.uk" class="text-brand-500 underline font-semibold">bizzloop.co.uk</a>, inquire about our software, or subscribe to our Business Operating System services.</p>
+      
+      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+        <h4 class="text-xs font-bold text-dark uppercase tracking-wider">Table of Contents</h4>
+        <ul class="grid sm:grid-cols-2 gap-2 text-xs text-brand-500 font-medium">
+          <li><a href="#pp-1" class="hover:underline">1. Information We Collect</a></li>
+          <li><a href="#pp-2" class="hover:underline">2. How We Use Personal Data</a></li>
+          <li><a href="#pp-3" class="hover:underline">3. Lawful Bases for Processing</a></li>
+          <li><a href="#pp-4" class="hover:underline">4. Cookies & Web Technologies</a></li>
+          <li><a href="#pp-5" class="hover:underline">5. Data Sharing & Third Parties</a></li>
+          <li><a href="#pp-6" class="hover:underline">6. Data Retention & Security</a></li>
+          <li><a href="#pp-7" class="hover:underline">7. Your UK Data Rights</a></li>
+          <li><a href="#pp-8" class="hover:underline">8. Contact Us & ICO Complaints</a></li>
+        </ul>
+      </div>
+
+      <h3 id="pp-1" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">1. Information We Collect</h3>
+      <p>We collect personal information directly from you when you interact with our website or services. This includes:</p>
+      <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+        <li><strong>Contact Information:</strong> Full name, work email address, telephone/WhatsApp number, job title, and business name when submitting demo booking or contact forms.</li>
+        <li><strong>Business Details:</strong> Industry category, estimated staff count, and specific operational requirements submitted during consultations.</li>
+        <li><strong>Career Applications:</strong> Resume/CV details, portfolio links, employment background, and contact information submitted via our Careers application forms.</li>
+        <li><strong>Technical & Usage Data:</strong> Anonymised IP addresses, browser type, operating system, pages viewed, and referral sources collected automatically for performance monitoring.</li>
+      </ul>
+
+      <h3 id="pp-2" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">2. How We Use Personal Data</h3>
+      <p>We process your personal information strictly for legitimate business purposes, including:</p>
+      <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+        <li>Scheduling and delivering product demonstration calls and technical consultations.</li>
+        <li>Setting up, configuring, and supporting your BizzLoop Business Operating System subscription.</li>
+        <li>Responding to your inquiries, customer support requests, and billing communications.</li>
+        <li>Assessing candidate suitability for open career and internship positions.</li>
+        <li>Maintaining website security, detecting fraud, and ensuring continuous platform stability.</li>
+      </ul>
+
+      <h3 id="pp-3" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">3. Lawful Bases for Processing</h3>
+      <p>Under the UK General Data Protection Regulation (UK GDPR), we rely on the following lawful bases:</p>
+      <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+        <li><strong>Consent (Article 6(1)(a)):</strong> When you voluntarily submit forms, request demo consultations, or opt-in to marketing communications.</li>
+        <li><strong>Contract Performance (Article 6(1)(b)):</strong> Necessary to enter into or perform our service agreement with your business.</li>
+        <li><strong>Legitimate Interests (Article 6(1)(f)):</strong> To operate, secure, and improve our services, provided your rights do not override these interests.</li>
+      </ul>
+
+      <h3 id="pp-4" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">4. Cookies & Similar Technologies</h3>
+      <p>Our website uses essential technical cookies required for website security, session management, and responsive functionality. We do not place non-essential advertising or invasive third-party tracking cookies without user consent, adhering strictly to ICO Privacy and Electronic Communications Regulations (PECR) guidelines.</p>
+
+      <h3 id="pp-5" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">5. Data Sharing & Third-Party Processors</h3>
+      <p>We do not sell, rent, or trade personal data to third parties for marketing purposes. Data may be shared only with trusted infrastructure service providers (e.g. secure UK/EU cloud hosting, Google Apps Script webhooks for internal CRM processing) operating under strict data processing agreements.</p>
+
+      <h3 id="pp-6" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">6. Data Retention & Security</h3>
+      <p>All personal data is encrypted in transit using industry-standard TLS protocols. We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, or to comply with statutory accounting and legal obligations (typically up to 6 years for business financial records).</p>
+
+      <h3 id="pp-7" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">7. Your UK Data Protection Rights</h3>
+      <p>Under UK data protection law, you hold rights including:</p>
+      <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+        <li><strong>Right of Access:</strong> Request copies of your personal data (Subject Access Request).</li>
+        <li><strong>Right to Rectification:</strong> Request correction of inaccurate information.</li>
+        <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> Request deletion of your personal data under certain conditions.</li>
+        <li><strong>Right to Restriction & Objection:</strong> Object to processing based on legitimate interests or request restricted processing.</li>
+      </ul>
+
+      <h3 id="pp-8" class="text-lg font-bold text-dark border-b border-slate-100 pb-2">8. Contact Us & ICO Complaint Rights</h3>
+      <p>To exercise any of your data protection rights, please email us at <a href="mailto:info@bizzloop.co.uk" class="text-brand-500 font-semibold underline">info@bizzloop.co.uk</a>. You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener" class="text-brand-500 underline">ico.org.uk</a> if you believe your data has been handled unlawfully.</p>
     </div>
-    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+    <a href="#" class="inline-flex items-center gap-2 mt-10 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
   </div>
 </div>
 
 <!-- 3. TERMS OF SERVICE SUBPAGE -->
-<div id="view-terms" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
-  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Legal Terms</div>
-    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Terms & Conditions</h1>
-    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
-    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
-      <p>By using BizzLoop Ltd services or accessing our platform, you agree to these Terms and Conditions.</p>
-      <h3 class="text-base font-bold text-dark">1. Service Access</h3>
-      <p>BizzLoop Ltd provides a non-transferable licence for internal business usage of our software packages.</p>
-      <h3 class="text-base font-bold text-dark">2. Account Responsibility</h3>
-      <p>You are responsible for keeping account credentials confidential and restricting unauthorized system access.</p>
-      <h3 class="text-base font-bold text-dark">3. Subscription & Billing</h3>
-      <p>Monthly subscriptions are billed in advance. Services may be adjusted or cancelled with 30 days notice.</p>
+<div id="view-terms" class="page-view hidden py-28 sm:py-36 px-5 sm:px-8 min-h-screen">
+  <!-- INTERNAL TODO: Final legal text should be reviewed by qualified UK legal & data protection professionals before relying on it as definitive legal advice. -->
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-100 shadow-sm">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Legal Agreement</div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-dark mb-2">Terms & Conditions</h1>
+    <p class="text-xs text-slate-400 mb-8 font-mono">Last Updated: August 2026 · BIZZLOOP LTD (Company No. 17319641)</p>
+    
+    <div class="text-sm text-slate-600 space-y-6 leading-relaxed">
+      <p class="text-base text-slate-700 font-medium">Welcome to BizzLoop. These Terms and Conditions ("Terms") govern your use of the website located at <a href="https://bizzloop.co.uk" class="text-brand-500 underline font-semibold">bizzloop.co.uk</a> and any software, platform, or consulting services provided by BIZZLOOP LTD ("BizzLoop", "we", "us", or "our"). By accessing our website or subscribing to our services, you agree to be bound by these Terms.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">1. About BizzLoop & Platform Scope</h3>
+      <p>BIZZLOOP LTD is a company registered in England & Wales (Company No. 17319641). We provide unified Business Operating Systems combining customer relationship management (CRM), enterprise resource planning (ERP), workflow automation, and business intelligence dashboards for UK small and medium enterprises (SMEs).</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">2. Subscriptions, Pricing & VAT</h3>
+      <ul class="list-disc pl-5 space-y-2 text-slate-600">
+        <li><strong>VAT Exclusive Pricing:</strong> All subscription prices displayed across our website (Starter: £149/mo, Growth: £349/mo, Enterprise: £749/mo) are shown <strong>exclusive of UK VAT</strong> (`exc. VAT`). Applicable UK Value Added Tax will be added to invoices at the statutory rate where required.</li>
+        <li><strong>No Setup Fees:</strong> There are no one-off setup fees charged on standard Starter, Growth, or Enterprise plans.</li>
+        <li><strong>Monthly Billing:</strong> Monthly plans are billed monthly in advance and may be adjusted or cancelled with 30 days written notice.</li>
+        <li><strong>Yearly Billing Promotional Offer:</strong> Annual subscriptions are billed annually in advance based on the promotional offer of <strong>10 monthly payments for 12 months of service</strong> (Starter: £1,490/yr, Growth: £3,490/yr, Enterprise: £7,490/yr exc. VAT). This provides an effective discount of <strong>16.7%</strong> compared to 12 individual monthly payments. Promotional rates apply to active subscription terms as specified.</li>
+      </ul>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">3. Acceptable Use & Client Content</h3>
+      <p>You agree not to use BizzLoop platform services for unlawful activities, transmitting harmful code, or attempting unauthorized access to infrastructure. You retain full ownership of all customer and operational data uploaded to your BizzLoop workspace.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">4. Limitation of Liability</h3>
+      <p>To the maximum extent permitted by English law, BizzLoop Ltd shall not be liable for indirect, incidental, or consequential damages, business disruption, or loss of profits arising out of platform usage. Our total cumulative liability shall not exceed the subscription fees paid by you in the 12 months preceding the claim.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">5. Governing Law & Jurisdiction</h3>
+      <p>These Terms are governed by and construed in accordance with the laws of England & Wales. The courts of England & Wales shall have exclusive jurisdiction to settle any disputes.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">6. Contact Information</h3>
+      <p>Questions regarding these Terms should be directed to <a href="mailto:info@bizzloop.co.uk" class="text-brand-500 font-semibold underline">info@bizzloop.co.uk</a>.</p>
     </div>
-    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+    <a href="#" class="inline-flex items-center gap-2 mt-10 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
   </div>
 </div>
 
 <!-- 4. UK GDPR COMPLIANCE SUBPAGE -->
-<div id="view-gdpr" class="page-view hidden py-32 px-5 sm:px-8 min-h-screen">
-  <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm sub-link-card">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Compliance</div>
-    <h1 class="text-3xl sm:text-4xl font-bold text-dark mb-4">UK GDPR & Data Protection</h1>
-    <p class="text-xs text-slate-400 mb-8">Last Updated: July 2026</p>
-    <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
-      <p>BizzLoop Ltd operates in full compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
-      <h3 class="text-base font-bold text-dark">1. Your Individual Rights</h3>
-      <p>You have the right to request access to, correction of, or deletion of your personal data held by us at any time.</p>
-      <h3 class="text-base font-bold text-dark">2. Lawful Processing</h3>
-      <p>Data is processed on the basis of explicit consent, contract performance, and legitimate business operations.</p>
-      <h3 class="text-base font-bold text-dark">3. Data Storage in the UK</h3>
-      <p>All client data is encrypted and hosted securely within UK and EU data centres.</p>
+<div id="view-gdpr" class="page-view hidden py-28 sm:py-36 px-5 sm:px-8 min-h-screen">
+  <!-- INTERNAL TODO: Final legal text should be reviewed by qualified UK legal & data protection professionals before relying on it as definitive legal advice. -->
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-14 border border-slate-100 shadow-sm">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-500 font-semibold text-[11px] uppercase tracking-wider mb-4">Compliance Framework</div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-dark mb-2">UK GDPR Compliance Statement</h1>
+    <p class="text-xs text-slate-400 mb-8 font-mono">Last Updated: August 2026 · BIZZLOOP LTD (Company No. 17319641)</p>
+    
+    <div class="text-sm text-slate-600 space-y-6 leading-relaxed">
+      <p class="text-base text-slate-700 font-medium">BIZZLOOP LTD is committed to protecting personal data and maintaining robust, transparent data protection practices in accordance with applicable UK data protection law, including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">1. Principles of Data Protection</h3>
+      <p>In accordance with ICO guidance, BizzLoop adheres to core data protection principles:</p>
+      <ul class="list-disc pl-5 space-y-2 text-slate-600">
+        <li><strong>Lawfulness, Fairness & Transparency:</strong> Personal data is processed fairly, lawfully, and in an open manner.</li>
+        <li><strong>Purpose Limitation:</strong> Collected solely for specified, explicit, and legitimate operational purposes.</li>
+        <li><strong>Data Minimisation:</strong> Processing is adequate, relevant, and limited to what is strictly necessary.</li>
+        <li><strong>Accuracy:</strong> Data is kept accurate and up to date where reasonably necessary.</li>
+        <li><strong>Storage Limitation:</strong> Data is retained no longer than necessary for processing purposes.</li>
+        <li><strong>Integrity & Confidentiality:</strong> Technical encryption and physical security protect against unauthorized access.</li>
+      </ul>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">2. Data Protection by Design & Default</h3>
+      <p>BizzLoop integrates data protection by design and default into system architecture, evaluating data privacy from the initial design phase of all software features, database schemas, and customer lead forms.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">3. Handling Data Subject Access Requests (DSAR)</h3>
+      <p>Individuals can submit Subject Access Requests, correction requests, or erasure requests by emailing <a href="mailto:info@bizzloop.co.uk" class="text-brand-500 font-semibold underline">info@bizzloop.co.uk</a>. Requests are responded to within one calendar month in accordance with statutory guidelines.</p>
+
+      <h3 class="text-lg font-bold text-dark border-b border-slate-100 pb-2">4. Data Breach Management</h3>
+      <p>We maintain an active Data Breach Policy. In the event of a personal data breach posing a risk to individuals, BizzLoop will notify the Information Commissioner's Office (ICO) within 72 hours of becoming aware of the breach.</p>
     </div>
-    <a href="#" class="inline-flex items-center gap-2 mt-8 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
+    <a href="#" class="inline-flex items-center gap-2 mt-10 text-brand-500 font-semibold text-sm hover:underline"><i class="ti ti-arrow-left"></i> Back to Main Site</a>
   </div>
 </div>
 
@@ -871,7 +1057,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-100">Paid Internship</span>
-              <span class="text-xs font-bold text-emerald-600 font-mono">£11.44 / hr</span>
             </div>
             <h3 class="text-lg font-bold text-dark mb-2">Business Development Intern</h3>
             <p class="text-xs text-slate-500 leading-relaxed mb-4">Support lead research, client outreach, and business growth activities while learning core UK SME sales operations.</p>
@@ -889,7 +1074,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-100">Paid Internship</span>
-              <span class="text-xs font-bold text-emerald-600 font-mono">£11.44 / hr</span>
             </div>
             <h3 class="text-lg font-bold text-dark mb-2">Marketing Intern</h3>
             <p class="text-xs text-slate-500 leading-relaxed mb-4">Assist with digital marketing, email campaigns, SEO content, and brand messaging for UK small businesses.</p>
@@ -907,7 +1091,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-100">Paid Internship</span>
-              <span class="text-xs font-bold text-emerald-600 font-mono">£11.44 / hr</span>
             </div>
             <h3 class="text-lg font-bold text-dark mb-2">Software Development Intern</h3>
             <p class="text-xs text-slate-500 leading-relaxed mb-4">Gain hands-on coding experience building web features, fixing UI components, and learning software architecture.</p>
@@ -925,7 +1108,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-100">Paid Internship</span>
-              <span class="text-xs font-bold text-emerald-600 font-mono">£11.44 / hr</span>
             </div>
             <h3 class="text-lg font-bold text-dark mb-2">Operations / Administration Intern</h3>
             <p class="text-xs text-slate-500 leading-relaxed mb-4">Learn business administration, workflow organization, customer support processes, and internal documentation.</p>
@@ -973,9 +1155,8 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
         </a>
         <p class="text-slate-400 text-sm leading-relaxed mb-5">Simple, connected business software built specifically for UK small and medium enterprises.</p>
         <div class="flex gap-2">
-          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-linkedin text-lg"></i></a>
-          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-instagram text-lg"></i></a>
-          <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-youtube text-lg"></i></a>
+          <a href="https://www.linkedin.com/company/bizzloopltd/" target="_blank" rel="noopener" aria-label="BizzLoop Ltd LinkedIn Profile" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-linkedin text-lg"></i></a>
+          <a href="https://www.instagram.com/bizzloopltd?utm_source=qr" target="_blank" rel="noopener" aria-label="BizzLoop Ltd Instagram Profile" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"><i class="ti ti-brand-instagram text-lg"></i></a>
         </div>
       </div>
 
@@ -1017,13 +1198,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:4px;backgroun
 
     <div class="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
       <div class="text-xs text-slate-500">&copy; <span id="year"></span> BIZZLOOP LTD. All rights reserved.</div>
-      <div class="flex flex-wrap justify-center gap-5 text-xs text-slate-400">
-        <a href="#about" class="hover:text-white transition-colors">About</a>
-        <a href="#careers" class="hover:text-white transition-colors">Careers</a>
-        <a href="#privacy" class="hover:text-white transition-colors">Privacy</a>
-        <a href="#terms" class="hover:text-white transition-colors">Terms</a>
-        <a href="#gdpr" class="hover:text-white transition-colors">UK GDPR</a>
-      </div>
     </div>
   </div>
 </footer>
@@ -1082,6 +1256,65 @@ const bizzloopNetworkData = {
     { from: "erp", to: "hr" },
     { from: "finance", to: "support" }
   ]
+};
+
+/* ══════════════════════════════════════════════════════════════
+   PRICING BILLING TOGGLE (MONTHLY VS YEARLY = 10 MONTHS)
+   ══════════════════════════════════════════════════════════════ */
+let isYearlyBilling = false;
+window.toggleBillingPeriod = function() {
+  isYearlyBilling = !isYearlyBilling;
+  const toggleBtn = document.querySelector('#pricing-toggle-btn');
+  const thumb = document.querySelector('#toggle-thumb');
+  const labelMonthly = document.querySelector('#billing-label-monthly');
+  const labelYearly = document.querySelector('#billing-label-yearly');
+
+  if (isYearlyBilling) {
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-checked', 'true');
+      toggleBtn.classList.remove('bg-slate-200');
+      toggleBtn.classList.add('bg-brand-500');
+    }
+    if (thumb) {
+      thumb.classList.remove('translate-x-0');
+      thumb.classList.add('translate-x-7');
+    }
+    if (labelMonthly) labelMonthly.className = 'text-xs font-medium text-slate-400 transition-colors';
+    if (labelYearly) labelYearly.className = 'text-xs font-bold text-dark flex items-center gap-1.5 transition-colors';
+  } else {
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-checked', 'false');
+      toggleBtn.classList.remove('bg-brand-500');
+      toggleBtn.classList.add('bg-slate-200');
+    }
+    if (thumb) {
+      thumb.classList.remove('translate-x-7');
+      thumb.classList.add('translate-x-0');
+    }
+    if (labelMonthly) labelMonthly.className = 'text-xs font-bold text-dark transition-colors';
+    if (labelYearly) labelYearly.className = 'text-xs font-medium text-slate-400 transition-colors flex items-center gap-1.5';
+  }
+
+  const prices = {
+    starter: { amount: isYearlyBilling ? '£1,490' : '£149', period: isYearlyBilling ? '/year' : '/month' },
+    growth: { amount: isYearlyBilling ? '£3,490' : '£349', period: isYearlyBilling ? '/year' : '/month' },
+    enterprise: { amount: isYearlyBilling ? '£7,490' : '£749', period: isYearlyBilling ? '/year' : '/month' }
+  };
+
+  document.querySelectorAll('.price-amount-starter').forEach(el => el.textContent = prices.starter.amount);
+  document.querySelectorAll('.price-period-starter').forEach(el => el.textContent = prices.starter.period);
+  document.querySelectorAll('.price-amount-growth').forEach(el => el.textContent = prices.growth.amount);
+  document.querySelectorAll('.price-period-growth').forEach(el => el.textContent = prices.growth.period);
+  document.querySelectorAll('.price-amount-enterprise').forEach(el => el.textContent = prices.enterprise.amount);
+  document.querySelectorAll('.price-period-enterprise').forEach(el => el.textContent = prices.enterprise.period);
+
+  document.querySelectorAll('.yearly-savings-badge').forEach(el => {
+    if (isYearlyBilling) {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  });
 };
 
 /* ══════════════════════════════════════════════════════════════
