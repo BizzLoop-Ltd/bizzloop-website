@@ -6,7 +6,7 @@
 const BizzLoopPricing = (() => {
   'use strict';
 
-  let isAnnual = false;
+  let currentCycle = 'monthly'; // 'monthly' | 'yearly'
 
   const planPricing = {
     starter: {
@@ -14,69 +14,55 @@ const BizzLoopPricing = (() => {
       annualTotal: '£1,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £298 (2 Months Free)'
+      savingsText: '2 Months Free · Save £298'
     },
     growth: {
       monthly: '£349',
       annualTotal: '£3,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £698 (2 Months Free)'
+      savingsText: '2 Months Free · Save £698'
     },
     enterprise: {
       monthly: '£749',
       annualTotal: '£7,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £1,498 (2 Months Free)'
+      savingsText: '2 Months Free · Save £1,498'
     }
   };
 
-  function setBillingPeriod(annual) {
-    isAnnual = annual;
-    updateUI();
-  }
+  function setBillingCycle(cycle) {
+    if (cycle !== 'monthly' && cycle !== 'yearly' && cycle !== 'annual') return;
+    currentCycle = (cycle === 'annual' || cycle === 'yearly') ? 'yearly' : 'monthly';
+    const isAnnual = currentCycle === 'yearly';
 
-  function toggle() {
-    isAnnual = !isAnnual;
-    updateUI();
-  }
-
-  function updateUI() {
-    const toggleSwitchBtn = document.getElementById('billingSwitchBtn');
-    const labelMonthly = document.getElementById('billingLabelMonthly');
-    const labelYearly = document.getElementById('billingLabelYearly');
+    // 1. Update Switch Button UI
+    const switchBtn = document.getElementById('billingSwitchBtn');
+    const monthlyLabel = document.getElementById('billingLabelMonthly');
+    const yearlyLabel = document.getElementById('billingLabelYearly');
     const billingSubtitle = document.getElementById('billingCycleSubtitle');
 
-    if (toggleSwitchBtn) {
-      toggleSwitchBtn.setAttribute('aria-checked', isAnnual.toString());
-      const thumb = toggleSwitchBtn.querySelector('.pricing-switch-thumb');
-      if (thumb) {
-        if (isAnnual) {
-          toggleSwitchBtn.classList.add('bg-brand-500');
-          toggleSwitchBtn.classList.remove('bg-slate-300');
-          thumb.classList.add('translate-x-6');
-          thumb.classList.remove('translate-x-0.5');
-        } else {
-          toggleSwitchBtn.classList.remove('bg-brand-500');
-          toggleSwitchBtn.classList.add('bg-slate-300');
-          thumb.classList.remove('translate-x-6');
-          thumb.classList.add('translate-x-0.5');
-        }
+    if (switchBtn) {
+      switchBtn.setAttribute('aria-checked', isAnnual ? 'true' : 'false');
+      if (isAnnual) {
+        switchBtn.classList.add('active');
+      } else {
+        switchBtn.classList.remove('active');
       }
     }
 
-    if (labelMonthly && labelYearly) {
+    if (monthlyLabel && yearlyLabel) {
       if (isAnnual) {
-        labelMonthly.classList.remove('active');
-        labelYearly.classList.add('active');
-        labelMonthly.setAttribute('aria-pressed', 'false');
-        labelYearly.setAttribute('aria-pressed', 'true');
+        yearlyLabel.classList.add('active');
+        monthlyLabel.classList.remove('active');
+        yearlyLabel.setAttribute('aria-pressed', 'true');
+        monthlyLabel.setAttribute('aria-pressed', 'false');
       } else {
-        labelMonthly.classList.add('active');
-        labelYearly.classList.remove('active');
-        labelMonthly.setAttribute('aria-pressed', 'true');
-        labelYearly.setAttribute('aria-pressed', 'false');
+        monthlyLabel.classList.add('active');
+        yearlyLabel.classList.remove('active');
+        monthlyLabel.setAttribute('aria-pressed', 'true');
+        yearlyLabel.setAttribute('aria-pressed', 'false');
       }
     }
 
@@ -86,57 +72,94 @@ const BizzLoopPricing = (() => {
         : 'Monthly rolling subscription. Adjust or cancel anytime with 30 days notice.';
     }
 
-    // Update Starter Plan
-    document.querySelectorAll('.price-val-starter').forEach(el => {
-      el.textContent = isAnnual ? planPricing.starter.annualTotal : planPricing.starter.monthly;
-    });
-    document.querySelectorAll('.price-period-starter').forEach(el => {
-      el.textContent = isAnnual ? planPricing.starter.periodAnnual : planPricing.starter.periodMonthly;
+    // 2. Update Plan Prices in DOM with smooth transition
+    ['starter', 'growth', 'enterprise'].forEach(tierKey => {
+      const data = planPricing[tierKey];
+      const priceEls = document.querySelectorAll(`.price-val-${tierKey}`);
+      const periodEls = document.querySelectorAll(`.price-period-${tierKey}`);
+
+      priceEls.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-3px)';
+        el.style.transition = 'all 0.15s ease';
+
+        setTimeout(() => {
+          el.textContent = isAnnual ? data.annualTotal : data.monthly;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 120);
+      });
+
+      periodEls.forEach(el => {
+        el.textContent = isAnnual ? data.periodAnnual : data.periodMonthly;
+      });
     });
 
-    // Update Growth Plan
-    document.querySelectorAll('.price-val-growth').forEach(el => {
-      el.textContent = isAnnual ? planPricing.growth.annualTotal : planPricing.growth.monthly;
-    });
-    document.querySelectorAll('.price-period-growth').forEach(el => {
-      el.textContent = isAnnual ? planPricing.growth.periodAnnual : planPricing.growth.periodMonthly;
-    });
-
-    // Update Enterprise Plan
-    document.querySelectorAll('.price-val-enterprise').forEach(el => {
-      el.textContent = isAnnual ? planPricing.enterprise.annualTotal : planPricing.enterprise.monthly;
-    });
-    document.querySelectorAll('.price-period-enterprise').forEach(el => {
-      el.textContent = isAnnual ? planPricing.enterprise.periodAnnual : planPricing.enterprise.periodMonthly;
-    });
-
-    // Toggle savings badges
+    // 3. Toggle savings badges
     document.querySelectorAll('.plan-savings-badge').forEach(el => {
       if (isAnnual) {
         el.classList.remove('hidden');
+        el.style.opacity = '0';
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transition = 'opacity 0.2s ease';
+        }, 120);
       } else {
         el.classList.add('hidden');
       }
     });
   }
 
+  function toggle() {
+    setBillingCycle(currentCycle === 'monthly' ? 'yearly' : 'monthly');
+  }
+
+  let isInitialized = false;
+
   function init() {
-    const labelMonthly = document.getElementById('billingLabelMonthly');
-    const labelYearly = document.getElementById('billingLabelYearly');
-    const toggleSwitchBtn = document.getElementById('billingSwitchBtn');
+    if (isInitialized) return;
+    isInitialized = true;
 
-    if (labelMonthly) labelMonthly.addEventListener('click', () => setBillingPeriod(false));
-    if (labelYearly) labelYearly.addEventListener('click', () => setBillingPeriod(true));
-    if (toggleSwitchBtn) toggleSwitchBtn.addEventListener('click', toggle);
+    const switchBtn = document.getElementById('billingSwitchBtn');
+    const monthlyLabel = document.getElementById('billingLabelMonthly');
+    const yearlyLabel = document.getElementById('billingLabelYearly');
 
-    updateUI();
+    if (switchBtn) {
+      switchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggle();
+      });
+      switchBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    }
+
+    if (monthlyLabel) {
+      monthlyLabel.addEventListener('click', (e) => {
+        e.preventDefault();
+        setBillingCycle('monthly');
+      });
+    }
+
+    if (yearlyLabel) {
+      yearlyLabel.addEventListener('click', (e) => {
+        e.preventDefault();
+        setBillingCycle('yearly');
+      });
+    }
+
+    // Default to monthly
+    setBillingCycle('monthly');
   }
 
   return {
     init,
     toggle,
-    setBillingPeriod,
-    isAnnual: () => isAnnual
+    setBillingCycle,
+    isAnnual: () => currentCycle === 'yearly'
   };
 })();
 

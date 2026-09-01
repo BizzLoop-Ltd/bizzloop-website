@@ -493,18 +493,21 @@ tailwind.config = {
 
         <!-- ACCESSIBLE MONTHLY / ANNUAL PRICING SWITCH -->
         <div class="pt-4 flex flex-col items-center justify-center">
-          <div class="pricing-toggle-wrapper" role="group" aria-label="Billing frequency toggle">
-            <button type="button" id="billingLabelMonthly" class="pricing-toggle-btn active" aria-pressed="true">
+          <div class="pricing-toggle-wrapper" id="billingToggleWrapper" role="group" aria-label="Billing frequency selection">
+            <!-- Monthly Button -->
+            <button type="button" id="billingLabelMonthly" class="pricing-toggle-label active" aria-pressed="true" aria-label="Select Monthly Billing">
               Billed Monthly
             </button>
 
-            <button type="button" id="billingSwitchBtn" role="switch" aria-checked="false" aria-label="Toggle Annual Billing" class="w-12 h-6 rounded-full bg-slate-300 relative transition-colors duration-200 focus:outline-none">
-              <span class="pricing-switch-thumb inline-block w-5 h-5 rounded-full bg-white shadow transform transition-transform duration-200 translate-x-0.5"></span>
+            <!-- Toggle Switch with aria-checked -->
+            <button type="button" id="billingSwitchBtn" role="switch" aria-checked="false" aria-label="Switch between monthly and annual billing" class="pricing-switch-btn">
+              <span class="pricing-switch-thumb" aria-hidden="true"></span>
             </button>
 
-            <button type="button" id="billingLabelYearly" class="pricing-toggle-btn" aria-pressed="false">
+            <!-- Annual Button with Save 16.7% badge -->
+            <button type="button" id="billingLabelYearly" class="pricing-toggle-label" aria-pressed="false" aria-label="Select Annual Billing">
               <span>Billed Yearly</span>
-              <span class="savings-pill ml-1">Save 16.7%</span>
+              <span class="discount-badge">Save 16.7%</span>
             </button>
           </div>
 
