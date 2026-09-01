@@ -37,7 +37,7 @@ const BizzLoopConfig = {
         annualTotal: 1490,
         annualMonthlyEquivalent: 124.17,
         userSeats: 'Up to 5 Users',
-        storage: '5 GB Vault'
+        storage: '5 GB'
       },
       growth: {
         id: 'growth',
@@ -46,7 +46,7 @@ const BizzLoopConfig = {
         annualTotal: 3490,
         annualMonthlyEquivalent: 290.83,
         userSeats: 'Up to 15 Users',
-        storage: '25 GB Vault',
+        storage: '25 GB',
         popular: true
       },
       enterprise: {
@@ -56,7 +56,7 @@ const BizzLoopConfig = {
         annualTotal: 7490,
         annualMonthlyEquivalent: 624.17,
         userSeats: 'Unlimited Users',
-        storage: '100 GB Vault'
+        storage: '100 GB'
       }
     }
   },
