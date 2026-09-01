@@ -10,21 +10,11 @@ const BizzLoopHeader = (() => {
     if (typeof window === 'undefined') return '';
     const path = window.location.pathname;
     
-    // Count directory depth relative to root
-    // e.g., /careers/ -> depth 1 -> '../'
-    // /plans/enterprise/ -> depth 2 -> '../../'
-    // /blog/crm-vs-erp-explained-simply/ -> depth 2 -> '../../'
-    // /index.html or / -> depth 0 -> ''
-    
-    // Normalize path
     let cleanPath = path;
     if (cleanPath.endsWith('/index.html')) cleanPath = cleanPath.slice(0, -11);
     if (cleanPath.endsWith('.html')) cleanPath = cleanPath.substring(0, cleanPath.lastIndexOf('/'));
     
-    // Split and filter empty segments
     const segments = cleanPath.split('/').filter(Boolean);
-    
-    // If running under GitHub Pages subfolder (e.g., /bizzloop-website/), ignore the first segment if it matches repo name
     const isGhPages = segments.length > 0 && (segments[0] === 'bizzloop-website' || segments[0] === 'Scalenova-Website');
     const relevantSegments = isGhPages ? segments.slice(1) : segments;
     
@@ -77,11 +67,11 @@ const BizzLoopHeader = (() => {
 
   function getNavItems(basePath) {
     return [
-      { id: 'services', label: 'Services', href: `${basePath}services/`, hashHref: `${basePath}index.html#services`, icon: 'ti ti-apps' },
+      { id: 'services', label: 'Services', href: `${basePath}services/`, icon: 'ti ti-apps' },
       { id: 'managed', label: 'Managed Ecosystem', href: `${basePath}index.html#managed`, icon: 'ti ti-cpu' },
       { id: 'workflow', label: 'In Action', href: `${basePath}index.html#workflow`, icon: 'ti ti-player-play' },
       { id: 'loop', label: 'Connected Loop', href: `${basePath}index.html#loop`, icon: 'ti ti-repeat' },
-      { id: 'pricing', label: 'Pricing', href: `${basePath}plans/`, hashHref: `${basePath}index.html#pricing`, icon: 'ti ti-currency-pound' },
+      { id: 'pricing', label: 'Pricing', href: `${basePath}plans/`, icon: 'ti ti-currency-pound' },
       { id: 'insights', label: 'Insights', href: `${basePath}blog/`, icon: 'ti ti-book-2' },
       { id: 'careers', label: 'Careers', href: `${basePath}careers/`, icon: 'ti ti-briefcase', badge: 'Hiring' },
       { id: 'partner', label: 'Partner', href: `${basePath}affiliate/`, icon: 'ti ti-handshake' }
@@ -130,8 +120,6 @@ const BizzLoopHeader = (() => {
   }
 
   function getMobileDrawerHtml(basePath, activePage) {
-    const items = getNavItems(basePath);
-
     return `
       <!-- Mobile Overlay Backdrop -->
       <div id="mobile-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
@@ -314,7 +302,17 @@ const BizzLoopHeader = (() => {
   }
 
   function init(explicitActivePage = null) {
-    render('global-header', 'global-mobile-nav', explicitActivePage);
+    const activePage = explicitActivePage || detectCurrentPage();
+    
+    // If header doesn't have child content yet, render it
+    const header = document.getElementById('global-header');
+    if (!header || !header.firstElementChild) {
+      render('global-header', 'global-mobile-nav', activePage);
+    } else {
+      initMobileNav();
+      initScrollObserver();
+      if (activePage) setActivePage(activePage);
+    }
   }
 
   return {
