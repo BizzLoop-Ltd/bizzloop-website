@@ -1,0 +1,453 @@
+/* ==========================================================================
+   BIZZLOOP COMPONENT STYLESHEET (css/components.css)
+   Modular UI components, cards, buttons, modals, & pricing elements
+   ========================================================================== */
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--bl-brand-500) 0%, #0D3DB0 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(20, 81, 216, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1D4ED8 0%, var(--bl-brand-500) 100%);
+  box-shadow: 0 8px 24px rgba(20, 81, 216, 0.4);
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  color: var(--bl-dark);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border: 1px solid var(--bl-border);
+  box-shadow: var(--bl-shadow-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--bl-brand-300);
+  background: var(--bl-brand-50);
+  color: var(--bl-brand-600);
+  box-shadow: 0 4px 16px rgba(20, 81, 216, 0.08);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-cyan {
+  background: linear-gradient(135deg, #04A5C2 0%, #038096 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(4, 165, 194, 0.3);
+}
+
+.btn-cyan:hover {
+  background: linear-gradient(135deg, #06B6D4 0%, #04A5C2 100%);
+  box-shadow: 0 8px 24px rgba(4, 165, 194, 0.4);
+}
+
+.btn-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-emerald:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+/* ── CARDS & INTERACTION ── */
+.bl-card {
+  background: #FFFFFF;
+  border: 1px solid var(--bl-border);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.bl-card-interactive {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.bl-card-interactive:hover {
+  transform: translateY(-6px);
+  border-color: rgba(20, 81, 216, 0.3);
+  box-shadow: var(--bl-shadow-lg), 0 0 0 1px rgba(20, 81, 216, 0.15);
+}
+
+/* 8 BizzLoop in Action Card Specifics */
+.action-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--bl-border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(20, 81, 216, 0.35);
+  box-shadow: 0 20px 40px rgba(20, 81, 216, 0.1), 0 0 0 1px rgba(20, 81, 216, 0.2);
+}
+
+.action-card:hover::before {
+  background: linear-gradient(90deg, var(--bl-brand-500), var(--bl-cyan), var(--bl-emerald));
+}
+
+/* Popular Pricing Protrusion Card */
+.popular-pricing-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 2px solid var(--bl-brand-500);
+  box-shadow: 0 20px 50px rgba(20, 81, 216, 0.15);
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .popular-pricing-card {
+    transform: translateY(-12px);
+  }
+  .popular-pricing-card:hover {
+    transform: translateY(-16px);
+  }
+}
+
+/* ── PRICING SWITCH COMPONENT ── */
+.pricing-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #F1F5F9;
+  padding: 0.35rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--bl-border);
+}
+
+.pricing-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--bl-slate-600);
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pricing-toggle-btn.active {
+  background: #FFFFFF;
+  color: var(--bl-brand-600);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-switch-toggle {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.pricing-switch-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pricing-slider-round {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E1;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.pricing-slider-round:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .pricing-slider-round {
+  background-color: var(--bl-brand-500);
+}
+
+input:checked + .pricing-slider-round:before {
+  transform: translateX(24px);
+}
+
+.savings-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+}
+
+/* ── ROI SLIDER COMPONENT ── */
+.bl-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #E2E8F0;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.bl-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bl-brand-500), var(--bl-cyan));
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(20, 81, 216, 0.4);
+  border: 2px solid #FFFFFF;
+  transition: transform 0.15s ease;
+}
+
+.bl-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.bl-range-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bl-brand-500), var(--bl-cyan));
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(20, 81, 216, 0.4);
+  border: 2px solid #FFFFFF;
+}
+
+/* ── FAQ ACCORDION ── */
+.faq-accordion-item {
+  border: 1px solid var(--bl-border);
+  border-radius: 1rem;
+  background: #FFFFFF;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-accordion-item.active {
+  border-color: var(--bl-brand-300);
+  background: linear-gradient(135deg, #F8FAFC 0%, rgba(239, 246, 255, 0.6) 100%);
+  box-shadow: 0 8px 24px rgba(20, 81, 216, 0.06);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--bl-dark);
+}
+
+.faq-trigger:hover {
+  color: var(--bl-brand-600);
+}
+
+.faq-icon-rotator {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bl-slate-600);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-accordion-item.active .faq-icon-rotator {
+  transform: rotate(45deg);
+  background: var(--bl-brand-500);
+  color: #FFFFFF;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 1.5rem;
+}
+
+.faq-accordion-item.active .faq-content {
+  padding-bottom: 1.5rem;
+}
+
+/* ── SPA MODALS & OVERLAYS ── */
+.bl-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bl-modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bl-modal-panel {
+  background: #FFFFFF;
+  border-radius: 1.75rem;
+  border: 1px solid var(--bl-border);
+  box-shadow: var(--bl-shadow-xl);
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bl-modal-backdrop.open .bl-modal-panel {
+  transform: scale(1) translateY(0);
+}
+
+.bl-spa-panel {
+  background: #FFFFFF;
+  border-radius: 1.75rem;
+  border: 1px solid var(--bl-border);
+  box-shadow: var(--bl-shadow-xl);
+  width: 100%;
+  max-width: 56rem; /* max-w-4xl */
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── FORM CONTROLS ── */
+.bl-input, .bl-select, .bl-textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid var(--bl-border);
+  border-radius: 0.75rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  color: var(--bl-dark);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.bl-input:focus, .bl-select:focus, .bl-textarea:focus {
+  outline: none;
+  border-color: var(--bl-brand-500);
+  box-shadow: 0 0 0 3px rgba(20, 81, 216, 0.15);
+}
+
+.bl-input::placeholder, .bl-textarea::placeholder {
+  color: #94A3B8;
+}
+
+/* ── COOKIE BANNER ── */
+#cookie-consent-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  max-width: 28rem;
+  z-index: 800;
+  transform: translateY(150%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#cookie-consent-banner.show {
+  transform: translateY(0);
+  opacity: 1;
+}

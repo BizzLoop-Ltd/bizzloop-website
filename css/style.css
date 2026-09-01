@@ -1,0 +1,254 @@
+/* ==========================================================================
+   BIZZLOOP MASTER STYLESHEET (css/style.css)
+   UK Business Growth & Operations Operating System
+   ========================================================================== */
+
+:root {
+  /* Brand Core Color Palette (Distinct from ScaleNova) */
+  --bl-brand-50: #EFF6FF;
+  --bl-brand-100: #DBEAFE;
+  --bl-brand-200: #BFDBFE;
+  --bl-brand-300: #93C5FD;
+  --bl-brand-400: #60A5FA;
+  --bl-brand-500: #1451D8; /* Primary Royal/Electric Blue */
+  --bl-brand-600: #1D4ED8;
+  --bl-brand-700: #1E40AF;
+  --bl-brand-800: #1E3A8A;
+  --bl-brand-900: #0F172A;
+
+  /* Accent Colors */
+  --bl-cyan: #04A5C2;
+  --bl-cyan-light: #E0F7FA;
+  --bl-emerald: #10B981;
+  --bl-emerald-light: #ECFDF5;
+  --bl-amber: #F59E0B;
+  --bl-rose: #F43F5E;
+  --bl-purple: #8B5CF6;
+
+  /* Neutrals */
+  --bl-bg: #FFFFFF;
+  --bl-bg-alt: #F8FAFC;
+  --bl-dark: #0F172A;
+  --bl-slate-600: #475569;
+  --bl-slate-400: #94A3B8;
+  --bl-border: #E2E8F0;
+  --bl-border-light: #F1F5F9;
+
+  /* Shadows */
+  --bl-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --bl-shadow-md: 0 8px 24px rgba(20, 81, 216, 0.08);
+  --bl-shadow-lg: 0 16px 40px rgba(20, 81, 216, 0.12);
+  --bl-shadow-xl: 0 24px 60px rgba(15, 23, 42, 0.15);
+
+  /* Typography */
+  --bl-font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--bl-font-sans);
+  background-color: var(--bl-bg);
+  color: var(--bl-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Selection Highlight */
+::selection {
+  background: var(--bl-brand-500);
+  color: #FFFFFF;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 81, 216, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bl-brand-500);
+}
+
+/* Ambient Canvas Background Layer */
+#ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px;
+}
+
+/* Scroll Reading Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bl-brand-500), var(--bl-cyan), var(--bl-emerald));
+  z-index: 1000;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Typography Gradient Utilities */
+.bl-gradient-text {
+  background: linear-gradient(135deg, #1451D8 0%, #04A5C2 70%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bl-gradient-cyan {
+  background: linear-gradient(135deg, #04A5C2 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bl-gradient-royal {
+  background: linear-gradient(135deg, #1E40AF 0%, #1451D8 50%, #04A5C2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section Backgrounds */
+.section-alt {
+  background-color: var(--bl-bg-alt);
+}
+
+.section-mesh {
+  background: radial-gradient(circle at 10% 20%, rgba(20, 81, 216, 0.03) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(4, 165, 194, 0.04) 0%, transparent 45%),
+              #FFFFFF;
+}
+
+.section-dark-mesh {
+  background: radial-gradient(circle at 20% 30%, rgba(20, 81, 216, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(4, 165, 194, 0.12) 0%, transparent 50%),
+              #0F172A;
+}
+
+/* Glassmorphism Styles */
+.bl-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--bl-shadow-sm);
+}
+
+.bl-glass-strong {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: var(--bl-shadow-md);
+}
+
+.bl-glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes flowDash {
+  to { stroke-dashoffset: -40; }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

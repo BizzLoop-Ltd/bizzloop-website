@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Symbol Icon: Interlocking Loops -->
+  <g transform="translate(10, 10)">
+    <!-- Top Loop (Electric Blue) -->
+    <rect x="5" y="5" width="70" height="44" rx="22" stroke="#1451D8" stroke-width="10" fill="none"/>
+    <!-- Bottom Loop (Luminous Cyan) -->
+    <rect x="5" y="32" width="70" height="44" rx="22" stroke="#04A5C2" stroke-width="10" fill="none"/>
+    <!-- Overlap Arc -->
+    <path d="M5 27 A22 22 0 0 1 27 5 H53 A22 22 0 0 1 75 27" stroke="#1451D8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Center Pulse Dot (Emerald Green) -->
+    <circle cx="40" cy="40" r="5" fill="#22C55E"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="105" y="58" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-weight="900" font-size="44" fill="#0F172A" letter-spacing="-1">Bizz<tspan fill="#1451D8">Loop</tspan></text>
+  <text x="108" y="78" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-weight="800" font-size="11" fill="#04A5C2" letter-spacing="3.5">BUSINESS GROWTH OS</text>
+</svg>
