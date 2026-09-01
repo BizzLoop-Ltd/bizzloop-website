@@ -17,12 +17,12 @@ const BizzLoopAffiliate = {
     {
       title: 'Digital Marketing & Web Agencies',
       icon: 'ti ti-device-laptop',
-      desc: 'Offer your clients a ready-made CRM, lead routing engine, and back-office ERP alongside your web design and marketing retainers.'
+      desc: 'Offer your clients a ready-made CRM, lead routing engine, and back-office operations alongside your web design and marketing retainers.'
     },
     {
       title: 'Accountants & Bookkeepers',
       icon: 'ti ti-calculator',
-      desc: 'Help your small business clients get their invoices, stock records, and UK VAT documentation organized cleanly in real time.'
+      desc: 'Help your small business clients get their billing, invoices, stock records, and customer documentation organized cleanly in real time.'
     },
     {
       title: 'Business Coaches & Advisors',
@@ -37,7 +37,7 @@ const BizzLoopAffiliate = {
   ],
   steps: [
     { step: '01', title: 'Join Partner Network', desc: 'Apply online in under 2 minutes. We will review your application and send your partner kit.' },
-    { step: '02', title: 'Introduce Clients', desc: 'Refer UK business owners who need simpler CRM, ERP, or automated lead workflows.' },
+    { step: '02', title: 'Introduce Clients', desc: 'Refer UK business owners who need simpler CRM, operations, or automated lead workflows.' },
     { step: '03', title: 'We Onboard & Support', desc: 'Our UK team delivers the product demo, configures their workspace, and provides training.' },
     { step: '04', title: 'Earn Recurring Payouts', desc: 'Receive your 20% commission directly into your UK bank account every month.' }
   ]

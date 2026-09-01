@@ -9,14 +9,14 @@ const BizzLoopWorkflowEngine = (() => {
   // Workflow steps for the Connected Customer Journey
   const workflowSteps = [
     { id: 'web', name: 'Website', icon: 'ti ti-browser', color: '#1451D8', desc: 'High-speed online presence' },
-    { id: 'lead', name: 'Lead Capture', icon: 'ti ti-magnet', color: '#04A5C2', desc: 'Smart intake & booking forms' },
+    { id: 'lead', name: 'Lead Capture', icon: 'ti ti-magnet', color: '#04A5C2', desc: 'Smart intake & enquiry forms' },
     { id: 'crm', name: 'CRM Pipeline', icon: 'ti ti-users', color: '#10B981', desc: 'Deal stages & contact logs' },
-    { id: 'followup', name: 'Auto Follow-Up', icon: 'ti ti-clock-play', color: '#F59E0B', desc: 'Instant WhatsApp & email' },
-    { id: 'marketing', name: 'Marketing', icon: 'ti ti-chart-arrows', color: '#8B5CF6', desc: 'Nurture & re-engagement' },
-    { id: 'sales', name: 'Sales & Quote', icon: 'ti ti-file-dollar', color: '#1451D8', desc: 'HMRC-ready VAT quotes' },
+    { id: 'followup', name: 'Auto Follow-Up', icon: 'ti ti-clock-play', color: '#F59E0B', desc: 'Instant WhatsApp & email notifications' },
+    { id: 'marketing', name: 'Marketing', icon: 'ti ti-chart-arrows', color: '#8B5CF6', desc: 'Campaign nurture & engagement' },
+    { id: 'sales', name: 'Sales & Invoices', icon: 'ti ti-file-dollar', color: '#1451D8', desc: 'Invoices & billing flows' },
     { id: 'customer', name: 'Customer Hub', icon: 'ti ti-user-check', color: '#04A5C2', desc: '360° client history' },
-    { id: 'operations', name: 'Operations & ERP', icon: 'ti ti-building-warehouse', color: '#10B981', desc: 'Invoices, stock & tasks' },
-    { id: 'growth', name: 'Retention & Growth', icon: 'ti ti-repeat', color: '#F59E0B', desc: 'Review collection & renewals' }
+    { id: 'operations', name: 'Operations & Tasks', icon: 'ti ti-building-warehouse', color: '#10B981', desc: 'Tasks, stock & delivery' },
+    { id: 'growth', name: 'Retention & Growth', icon: 'ti ti-repeat', color: '#F59E0B', desc: 'Service renewals & client loyalty' }
   ];
 
   // Initialize Ambient Background Canvas
@@ -103,12 +103,12 @@ const BizzLoopWorkflowEngine = (() => {
     let packets = [];
 
     const departments = [
-      { id: 'leads', name: 'Lead Enquiries', icon: 'ti ti-magnet', color: '#1451D8', metric: '98% Response' },
-      { id: 'crm', name: 'Customer Records', icon: 'ti ti-users', color: '#04A5C2', metric: '2,845 Contacts' },
-      { id: 'erp', name: 'Operations & Stock', icon: 'ti ti-building-warehouse', color: '#10B981', metric: '140h Saved' },
-      { id: 'finance', name: 'VAT & Invoicing', icon: 'ti ti-receipt', color: '#1451D8', metric: 'HMRC Ready' },
-      { id: 'hr', name: 'Team & Staff', icon: 'ti ti-users-group', color: '#04A5C2', metric: 'Staff Synced' },
-      { id: 'marketing', name: 'Marketing & SEO', icon: 'ti ti-chart-arrows', color: '#10B981', metric: '85% Growth' }
+      { id: 'leads', name: 'Lead Enquiries', icon: 'ti ti-magnet', color: '#1451D8', metric: 'Instant Alerts' },
+      { id: 'crm', name: 'Customer Records', icon: 'ti ti-users', color: '#04A5C2', metric: 'Organised Deals' },
+      { id: 'erp', name: 'Operations & Tasks', icon: 'ti ti-building-warehouse', color: '#10B981', metric: 'Team Flow' },
+      { id: 'billing', name: 'Invoicing & Billing', icon: 'ti ti-receipt', color: '#1451D8', metric: 'Billing Workflows' },
+      { id: 'team', name: 'Team & Staff', icon: 'ti ti-users-group', color: '#04A5C2', metric: 'Staff Synced' },
+      { id: 'marketing', name: 'Marketing & SEO', icon: 'ti ti-chart-arrows', color: '#10B981', metric: 'Targeted Outreach' }
     ];
 
     function resizeCanvas() {

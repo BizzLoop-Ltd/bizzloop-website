@@ -27,12 +27,12 @@ const BizzLoopCareers = {
         'Conduct 30-minute discovery and demonstration calls with UK business owners',
         'Identify administrative and operational bottlenecks in client workflows',
         'Build and maintain strong customer relationships through the onboarding phase',
-        'Collaborate with the product engineering team to feedback UK SME user requests'
+        'Collaborate with the product engineering team to feedback user requests'
       ],
       requirements: [
         '1-2 years experience in B2B sales, account management, or consultative customer success',
         'Exceptional written and spoken English communication skills',
-        'Familiarity with CRM, invoicing, or SME operational workflows',
+        'Familiarity with CRM, invoicing, or operational workflows',
         'A consultative, customer-first approach to business problem solving'
       ]
     },
@@ -47,13 +47,13 @@ const BizzLoopCareers = {
       responsibilities: [
         'Develop responsive web interfaces using modern JavaScript, CSS design tokens, and semantic HTML',
         'Build webhook integrations, form pipelines, and data sync workers',
-        'Ensure 99.9% uptime and high security standards across UK cloud infrastructure',
+        'Maintain high system availability and robust security standards across cloud infrastructure',
         'Maintain automated test coverage and assist with continuous deployment'
       ],
       requirements: [
         '2+ years of professional full-stack development experience (JavaScript/Python/PHP)',
         'Strong knowledge of relational databases (MariaDB/PostgreSQL) and API architectures',
-        'Experience building clean, accessible UI components (WCAG 2.1 compliance)',
+        'Experience building clean, accessible UI components (WCAG 2.1 standards)',
         'Familiarity with Frappe Framework or ERPNext is a major bonus'
       ]
     },
@@ -66,7 +66,7 @@ const BizzLoopCareers = {
       location: 'London / Hybrid UK',
       summary: 'Learn core UK SME market analysis, client outreach strategies, and consultative software demonstration.',
       responsibilities: [
-        'Research UK business sectors (clinics, trade contractors, agencies) to understand their software needs',
+        'Research UK business sectors to understand their operational software needs',
         'Assist senior consultants during live product walkthroughs',
         'Prepare customized workflow diagrams for prospective clients',
         'Maintain lead database accuracy in BizzLoop CRM'
@@ -86,14 +86,14 @@ const BizzLoopCareers = {
       location: 'Remote / Hybrid UK',
       summary: 'Assist with SEO content writing, social media scheduling, email newsletter campaigns, and case study production.',
       responsibilities: [
-        'Draft practical business guides and case studies tailored for UK SME owners',
+        'Draft practical business guides and case studies tailored for small business owners',
         'Coordinate the BizzLoop editorial calendar across LinkedIn and Instagram',
         'Assist with on-page SEO keyword research and metadata optimisation',
         'Track campaign conversion performance and user engagement metrics'
       ],
       requirements: [
         'Strong written communication skills in natural UK English',
-        'Basic familiarity with Canva/Figma, social media tools, and SEO principles',
+        'Basic familiarity with design tools, social media channels, and SEO principles',
         'Enthusiasm for storytelling and digital marketing'
       ]
     },

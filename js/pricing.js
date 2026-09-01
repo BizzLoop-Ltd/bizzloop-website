@@ -1,6 +1,6 @@
 /**
  * BizzLoop Pricing Engine (js/pricing.js)
- * Interactive Monthly / Annual Pricing Toggle with UK VAT Calculations
+ * Interactive Monthly / Annual Pricing Toggle in GBP (£)
  */
 
 const BizzLoopPricing = (() => {
@@ -14,27 +14,21 @@ const BizzLoopPricing = (() => {
       annualTotal: '£1,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £298 (2 Months Free)',
-      vatMonthly: '£29.80/mo VAT',
-      vatAnnual: '£298.00/yr VAT'
+      savingsText: 'Save £298 (2 Months Free)'
     },
     growth: {
       monthly: '£349',
       annualTotal: '£3,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £698 (2 Months Free)',
-      vatMonthly: '£69.80/mo VAT',
-      vatAnnual: '£698.00/yr VAT'
+      savingsText: 'Save £698 (2 Months Free)'
     },
     enterprise: {
       monthly: '£749',
       annualTotal: '£7,490',
       periodMonthly: '/month',
       periodAnnual: '/year',
-      savingsText: 'Save £1,498 (2 Months Free)',
-      vatMonthly: '£149.80/mo VAT',
-      vatAnnual: '£1,498.00/yr VAT'
+      savingsText: 'Save £1,498 (2 Months Free)'
     }
   };
 
@@ -49,22 +43,26 @@ const BizzLoopPricing = (() => {
   }
 
   function updateUI() {
-    const toggleCheckbox = document.getElementById('pricing-checkbox');
     const toggleSwitchBtn = document.getElementById('billingSwitchBtn');
     const labelMonthly = document.getElementById('billingLabelMonthly');
     const labelYearly = document.getElementById('billingLabelYearly');
     const billingSubtitle = document.getElementById('billingCycleSubtitle');
 
-    if (toggleCheckbox) {
-      toggleCheckbox.checked = isAnnual;
-    }
-
     if (toggleSwitchBtn) {
       toggleSwitchBtn.setAttribute('aria-checked', isAnnual.toString());
-      if (isAnnual) {
-        toggleSwitchBtn.classList.add('active');
-      } else {
-        toggleSwitchBtn.classList.remove('active');
+      const thumb = toggleSwitchBtn.querySelector('.pricing-switch-thumb');
+      if (thumb) {
+        if (isAnnual) {
+          toggleSwitchBtn.classList.add('bg-brand-500');
+          toggleSwitchBtn.classList.remove('bg-slate-300');
+          thumb.classList.add('translate-x-6');
+          thumb.classList.remove('translate-x-0.5');
+        } else {
+          toggleSwitchBtn.classList.remove('bg-brand-500');
+          toggleSwitchBtn.classList.add('bg-slate-300');
+          thumb.classList.remove('translate-x-6');
+          thumb.classList.add('translate-x-0.5');
+        }
       }
     }
 
@@ -123,13 +121,6 @@ const BizzLoopPricing = (() => {
   }
 
   function init() {
-    const toggleCheckbox = document.getElementById('pricing-checkbox');
-    if (toggleCheckbox) {
-      toggleCheckbox.addEventListener('change', (e) => {
-        setBillingPeriod(e.target.checked);
-      });
-    }
-
     const labelMonthly = document.getElementById('billingLabelMonthly');
     const labelYearly = document.getElementById('billingLabelYearly');
     const toggleSwitchBtn = document.getElementById('billingSwitchBtn');
