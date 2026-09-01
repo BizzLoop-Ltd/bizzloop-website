@@ -40,9 +40,7 @@ const BizzLoopHeader = (() => {
     if (path.includes('/gdpr')) return 'gdpr';
 
     if (hash === '#services') return 'services';
-    if (hash === '#managed') return 'managed';
-    if (hash === '#workflow') return 'workflow';
-    if (hash === '#loop') return 'loop';
+    if (hash === '#managed' || hash === '#workflow' || hash === '#loop') return 'workflow';
     if (hash === '#pricing') return 'pricing';
 
     return 'home';
@@ -65,16 +63,14 @@ const BizzLoopHeader = (() => {
     `;
   }
 
+  // 5 Streamlined Primary Desktop Navigation Links
   function getNavItems(basePath) {
     return [
       { id: 'services', label: 'Services', href: `${basePath}services/`, icon: 'ti ti-apps' },
-      { id: 'managed', label: 'Managed Ecosystem', href: `${basePath}index.html#managed`, icon: 'ti ti-cpu' },
-      { id: 'workflow', label: 'In Action', href: `${basePath}index.html#workflow`, icon: 'ti ti-player-play' },
-      { id: 'loop', label: 'Connected Loop', href: `${basePath}index.html#loop`, icon: 'ti ti-repeat' },
-      { id: 'pricing', label: 'Pricing', href: `${basePath}plans/`, icon: 'ti ti-currency-pound' },
+      { id: 'workflow', label: 'How It Works', href: `${basePath}index.html#workflow`, icon: 'ti ti-repeat' },
+      { id: 'pricing', label: 'Plans', href: `${basePath}plans/`, icon: 'ti ti-currency-pound' },
       { id: 'insights', label: 'Insights', href: `${basePath}blog/`, icon: 'ti ti-book-2' },
-      { id: 'careers', label: 'Careers', href: `${basePath}careers/`, icon: 'ti ti-briefcase', badge: 'Hiring' },
-      { id: 'partner', label: 'Partner', href: `${basePath}affiliate/`, icon: 'ti ti-handshake' }
+      { id: 'careers', label: 'Careers', href: `${basePath}careers/`, icon: 'ti ti-briefcase', badge: 'Hiring' }
     ];
   }
 
@@ -82,14 +78,14 @@ const BizzLoopHeader = (() => {
     const items = getNavItems(basePath);
 
     return `
-      <nav class="hidden xl:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 text-xs font-bold text-slate-700" aria-label="Global Navigation">
+      <nav class="hidden lg:flex items-center gap-1.5 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 text-xs font-bold text-slate-700" aria-label="Global Navigation">
         ${items.map(item => {
           const isCurrent = activePage === item.id;
           const activeClass = isCurrent ? 'bg-white text-brand-600 shadow-sm' : 'hover:text-brand-600 hover:bg-white/80';
           const href = item.href;
 
           return `
-            <a href="${href}" class="px-3 py-1.5 rounded-full ${activeClass} transition-all flex items-center gap-1.5" data-nav-id="${item.id}">
+            <a href="${href}" class="px-3.5 py-1.5 rounded-full ${activeClass} transition-all flex items-center gap-1.5" data-nav-id="${item.id}">
               <i class="${item.icon} text-sm text-slate-400"></i>
               <span>${item.label}</span>
               ${item.badge ? `<span class="bg-brand-100 text-brand-600 text-[9px] font-extrabold px-1.5 py-0.2 rounded-full">${item.badge}</span>` : ''}
@@ -106,14 +102,14 @@ const BizzLoopHeader = (() => {
         <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center hover:scale-105 transition-transform" aria-label="WhatsApp Quick Connect">
           <i class="ti ti-brand-whatsapp text-lg"></i>
         </a>
-        <a href="${basePath}contact/" class="btn-primary text-xs px-5 py-2.5 flex items-center gap-1.5">
+        <a href="${basePath}contact/" class="btn-primary text-xs px-5 py-2.5 flex items-center gap-1.5 shadow-sm">
           <span>Get Started</span>
           <i class="ti ti-arrow-right text-xs"></i>
         </a>
       </div>
 
       <!-- Mobile Hamburger Toggle -->
-      <button id="menu-btn" type="button" class="xl:hidden w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 focus:outline-none" aria-label="Toggle Mobile Navigation">
+      <button id="menu-btn" type="button" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 focus:outline-none" aria-label="Toggle Mobile Navigation">
         <i class="ti ti-menu-2 text-xl"></i>
       </button>
     `;
@@ -122,10 +118,10 @@ const BizzLoopHeader = (() => {
   function getMobileDrawerHtml(basePath, activePage) {
     return `
       <!-- Mobile Overlay Backdrop -->
-      <div id="mobile-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
+      <div id="mobile-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
 
       <!-- Mobile Navigation Side Drawer -->
-      <div id="mobile-drawer" class="fixed inset-y-0 right-0 max-w-xs w-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 border-l border-slate-200 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+      <div id="mobile-drawer" class="fixed inset-y-0 right-0 max-w-xs w-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between p-6 border-l border-slate-200 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
         <div class="space-y-6">
           <div class="flex justify-between items-center pb-4 border-b border-slate-100">
             <div class="flex items-center gap-2">
@@ -142,19 +138,11 @@ const BizzLoopHeader = (() => {
               <i class="ti ti-chevron-right text-slate-300 text-xs"></i>
             </a>
             <a href="${basePath}services/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition ${activePage === 'services' ? 'bg-blue-50/70 text-brand-600' : ''}">
-              <span class="flex items-center gap-2.5"><i class="ti ti-apps text-brand-500 text-sm"></i> Core Services</span>
-              <i class="ti ti-chevron-right text-slate-300 text-xs"></i>
-            </a>
-            <a href="${basePath}index.html#managed" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition ${activePage === 'managed' ? 'bg-blue-50/70 text-brand-600' : ''}">
-              <span class="flex items-center gap-2.5"><i class="ti ti-cpu text-cyan-600 text-sm"></i> Managed Ecosystem</span>
+              <span class="flex items-center gap-2.5"><i class="ti ti-apps text-brand-500 text-sm"></i> Services</span>
               <i class="ti ti-chevron-right text-slate-300 text-xs"></i>
             </a>
             <a href="${basePath}index.html#workflow" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition ${activePage === 'workflow' ? 'bg-blue-50/70 text-brand-600' : ''}">
-              <span class="flex items-center gap-2.5"><i class="ti ti-player-play text-brand-500 text-sm"></i> BizzLoop in Action</span>
-              <i class="ti ti-chevron-right text-slate-300 text-xs"></i>
-            </a>
-            <a href="${basePath}index.html#loop" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition ${activePage === 'loop' ? 'bg-blue-50/70 text-brand-600' : ''}">
-              <span class="flex items-center gap-2.5"><i class="ti ti-repeat text-emerald-500 text-sm"></i> Connected Loop</span>
+              <span class="flex items-center gap-2.5"><i class="ti ti-repeat text-cyan-600 text-sm"></i> How It Works</span>
               <i class="ti ti-chevron-right text-slate-300 text-xs"></i>
             </a>
             <a href="${basePath}plans/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition ${activePage === 'pricing' ? 'bg-blue-50/70 text-brand-600' : ''}">
@@ -304,7 +292,6 @@ const BizzLoopHeader = (() => {
   function init(explicitActivePage = null) {
     const activePage = explicitActivePage || detectCurrentPage();
     
-    // If header doesn't have child content yet, render it
     const header = document.getElementById('global-header');
     if (!header || !header.firstElementChild) {
       render('global-header', 'global-mobile-nav', activePage);
