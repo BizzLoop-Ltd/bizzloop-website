@@ -46,55 +46,32 @@ const BizzLoopPricing = (() => {
   };
 
   function setBillingCycle(cycle) {
-    if (cycle !== 'monthly' && cycle !== 'yearly' && cycle !== 'annual') return;
     currentCycle = (cycle === 'annual' || cycle === 'yearly') ? 'yearly' : 'monthly';
     const isAnnual = currentCycle === 'yearly';
 
-    // 1. Update Switch / Toggle Buttons (Handles both button styles)
-    const switchBtns = [
-      document.getElementById('billingSwitchBtn'),
-      document.getElementById('billingToggleBtn')
-    ].filter(Boolean);
-
+    // 1. Update Switch / Toggle Buttons
+    const switchBtns = document.querySelectorAll('#billingSwitchBtn, #billingToggleBtn, .pricing-switch-btn');
     switchBtns.forEach(btn => {
       btn.setAttribute('aria-checked', isAnnual ? 'true' : 'false');
       if (isAnnual) {
-        btn.classList.add('active', 'bg-brand-500');
+        btn.classList.add('active');
         btn.classList.remove('bg-slate-200');
       } else {
-        btn.classList.remove('active', 'bg-brand-500');
-        btn.classList.add('bg-slate-200');
+        btn.classList.remove('active');
       }
     });
 
-    const toggleThumbs = [
-      document.getElementById('toggleThumb'),
-      document.querySelector('.pricing-switch-thumb')
-    ].filter(Boolean);
-
-    toggleThumbs.forEach(thumb => {
-      thumb.style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
-      thumb.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
-
     // 2. Update Labels
-    const monthlyLabels = [
-      document.getElementById('billingLabelMonthly'),
-      document.getElementById('monthlyToggleLabel')
-    ].filter(Boolean);
-
-    const yearlyLabels = [
-      document.getElementById('billingLabelYearly'),
-      document.getElementById('annualToggleLabel')
-    ].filter(Boolean);
+    const monthlyLabels = document.querySelectorAll('#billingLabelMonthly, #monthlyToggleLabel');
+    const yearlyLabels = document.querySelectorAll('#billingLabelYearly, #annualToggleLabel');
 
     monthlyLabels.forEach(el => {
       if (isAnnual) {
-        el.classList.remove('active', 'text-slate-900', 'text-brand-600');
+        el.classList.remove('active', 'text-slate-900', 'font-extrabold');
         el.classList.add('text-slate-500');
         el.setAttribute('aria-pressed', 'false');
       } else {
-        el.classList.add('active', 'text-slate-900', 'text-brand-600');
+        el.classList.add('active', 'text-slate-900');
         el.classList.remove('text-slate-500');
         el.setAttribute('aria-pressed', 'true');
       }
@@ -102,11 +79,11 @@ const BizzLoopPricing = (() => {
 
     yearlyLabels.forEach(el => {
       if (isAnnual) {
-        el.classList.add('active', 'text-slate-900', 'text-brand-600');
+        el.classList.add('active', 'text-slate-900');
         el.classList.remove('text-slate-500');
         el.setAttribute('aria-pressed', 'true');
       } else {
-        el.classList.remove('active', 'text-slate-900', 'text-brand-600');
+        el.classList.remove('active', 'text-slate-900');
         el.classList.add('text-slate-500');
         el.setAttribute('aria-pressed', 'false');
       }
@@ -123,13 +100,8 @@ const BizzLoopPricing = (() => {
     ['starter', 'growth', 'enterprise'].forEach(tierKey => {
       const data = planPricing[tierKey];
 
-      // Targets on index.html and /plans/
-      const priceEls = [
-        ...document.querySelectorAll(`.price-val-${tierKey}`),
-        ...document.querySelectorAll(`.dynamic-price-${tierKey}`)
-      ];
-
-      const periodEls = document.querySelectorAll(`.price-period-${tierKey}`);
+      const priceEls = document.querySelectorAll(`.price-val-${tierKey}, .dynamic-price-${tierKey}`);
+      const periodEls = document.querySelectorAll(`.price-period-${tierKey}, .dynamic-period-${tierKey}`);
       const subtextEls = document.querySelectorAll(`.dynamic-billing-subtext-${tierKey}`);
 
       priceEls.forEach(el => {
@@ -145,7 +117,7 @@ const BizzLoopPricing = (() => {
       });
 
       periodEls.forEach(el => {
-        el.textContent = isAnnual ? data.periodAnnualShort : data.periodMonthlyShort;
+        el.textContent = isAnnual ? data.periodAnnual : data.periodMonthly;
       });
 
       subtextEls.forEach(el => {
@@ -177,54 +149,42 @@ const BizzLoopPricing = (() => {
     isInitialized = true;
 
     // Attach to all toggle switches
-    const toggleButtons = [
-      document.getElementById('billingSwitchBtn'),
-      document.getElementById('billingToggleBtn')
-    ].filter(Boolean);
-
+    const toggleButtons = document.querySelectorAll('#billingSwitchBtn, #billingToggleBtn, .pricing-switch-btn');
     toggleButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.onclick = (e) => {
         e.preventDefault();
         toggle();
-      });
-      btn.addEventListener('keydown', (e) => {
+      };
+      btn.onkeydown = (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           toggle();
         }
-      });
+      };
     });
 
     // Monthly label clicks
-    const monthlyLabels = [
-      document.getElementById('billingLabelMonthly'),
-      document.getElementById('monthlyToggleLabel')
-    ].filter(Boolean);
-
+    const monthlyLabels = document.querySelectorAll('#billingLabelMonthly, #monthlyToggleLabel');
     monthlyLabels.forEach(el => {
       el.style.cursor = 'pointer';
-      el.addEventListener('click', (e) => {
+      el.onclick = (e) => {
         e.preventDefault();
         setBillingCycle('monthly');
-      });
+      };
     });
 
     // Yearly label clicks
-    const yearlyLabels = [
-      document.getElementById('billingLabelYearly'),
-      document.getElementById('annualToggleLabel')
-    ].filter(Boolean);
-
+    const yearlyLabels = document.querySelectorAll('#billingLabelYearly, #annualToggleLabel');
     yearlyLabels.forEach(el => {
       el.style.cursor = 'pointer';
-      el.addEventListener('click', (e) => {
+      el.onclick = (e) => {
         e.preventDefault();
         setBillingCycle('yearly');
-      });
+      };
     });
 
-    // Default to monthly
-    setBillingCycle('monthly');
+    // Initialize state
+    setBillingCycle(currentCycle);
   }
 
   return {
@@ -235,11 +195,13 @@ const BizzLoopPricing = (() => {
   };
 })();
 
-// Auto-init if DOM is already loaded or on DOMContentLoaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => BizzLoopPricing.init());
-} else {
-  BizzLoopPricing.init();
+// Auto-init on load
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => BizzLoopPricing.init());
+  } else {
+    BizzLoopPricing.init();
+  }
 }
 
 if (typeof module !== 'undefined' && module.exports) {

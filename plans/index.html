@@ -234,16 +234,29 @@ tailwind.config = {
           No hidden implementation fees or surprise usage surcharges. Choose the plan that fits your current operational team size and scale seamlessly.
         </p>
 
-        <!-- ANNUAL / MONTHLY BILLING TOGGLE -->
-        <div class="pt-6 flex items-center justify-center gap-3 text-xs font-bold select-none">
-          <span id="monthlyToggleLabel" onclick="BizzLoopPricing.setBillingCycle('monthly')" class="text-slate-900 cursor-pointer">Monthly Billing</span>
-          <button id="billingToggleBtn" onclick="BizzLoopPricing.toggle()" type="button" role="switch" aria-checked="false" aria-label="Toggle annual billing discount" class="w-12 h-6 rounded-full bg-slate-200 p-0.5 transition-colors relative cursor-pointer focus:outline-none">
-            <div id="toggleThumb" class="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform"></div>
-          </button>
-          <span id="annualToggleLabel" onclick="BizzLoopPricing.setBillingCycle('yearly')" class="text-slate-500 cursor-pointer flex items-center gap-1">
-            <span>Annual Commitment</span>
-            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">Save 16.7% · 2 Mo Free</span>
-          </span>
+        <!-- ACCESSIBLE MONTHLY / ANNUAL PRICING SWITCH -->
+        <div class="pt-6 flex flex-col items-center justify-center">
+          <div class="pricing-toggle-wrapper" id="billingToggleWrapper" role="group" aria-label="Billing frequency selection">
+            <!-- Monthly Button -->
+            <button type="button" id="billingLabelMonthly" class="pricing-toggle-label active" aria-pressed="true" aria-label="Select Monthly Billing">
+              Billed Monthly
+            </button>
+
+            <!-- Toggle Switch with aria-checked -->
+            <button type="button" id="billingSwitchBtn" role="switch" aria-checked="false" aria-label="Switch between monthly and annual billing" class="pricing-switch-btn">
+              <span class="pricing-switch-thumb" aria-hidden="true"></span>
+            </button>
+
+            <!-- Annual Button with Save 16.7% badge -->
+            <button type="button" id="billingLabelYearly" class="pricing-toggle-label" aria-pressed="false" aria-label="Select Annual Billing">
+              <span>Billed Yearly</span>
+              <span class="discount-badge">Save 16.7%</span>
+            </button>
+          </div>
+
+          <p class="text-xs text-slate-400 font-medium mt-2.5 font-mono" id="billingCycleSubtitle">
+            Monthly rolling subscription. Adjust or cancel anytime with 30 days notice.
+          </p>
         </div>
       </div>
     </section>
@@ -264,9 +277,10 @@ tailwind.config = {
 
             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl sm:text-4xl font-black text-slate-900 dynamic-price-starter">£149</span>
-                <span class="text-xs text-slate-500 font-medium">/ month + VAT</span>
+                <span class="text-3xl sm:text-4xl font-black text-slate-900 price-val-starter dynamic-price-starter">£149</span>
+                <span class="text-xs text-slate-500 font-medium price-period-starter dynamic-period-starter">/ month + VAT</span>
               </div>
+              <span class="plan-savings-badge hidden text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 mt-1 inline-block">2 Months Free · Save £298</span>
               <p class="text-[11px] text-brand-600 font-semibold dynamic-billing-subtext-starter">Billed monthly · Cancel anytime</p>
             </div>
 
@@ -312,9 +326,10 @@ tailwind.config = {
 
             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl sm:text-4xl font-black text-slate-900 dynamic-price-growth">£349</span>
-                <span class="text-xs text-slate-500 font-medium">/ month + VAT</span>
+                <span class="text-3xl sm:text-4xl font-black text-slate-900 price-val-growth dynamic-price-growth">£349</span>
+                <span class="text-xs text-slate-500 font-medium price-period-growth dynamic-period-growth">/ month + VAT</span>
               </div>
+              <span class="plan-savings-badge hidden text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 mt-1 inline-block">2 Months Free · Save £698</span>
               <p class="text-[11px] text-brand-600 font-semibold dynamic-billing-subtext-growth">Billed monthly · Cancel anytime</p>
             </div>
 
@@ -360,9 +375,10 @@ tailwind.config = {
 
             <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl sm:text-4xl font-black text-slate-900 dynamic-price-enterprise">£749</span>
-                <span class="text-xs text-slate-500 font-medium">/ month + VAT</span>
+                <span class="text-3xl sm:text-4xl font-black text-slate-900 price-val-enterprise dynamic-price-enterprise">£749</span>
+                <span class="text-xs text-slate-500 font-medium price-period-enterprise dynamic-period-enterprise">/ month + VAT</span>
               </div>
+              <span class="plan-savings-badge hidden text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 mt-1 inline-block">2 Months Free · Save £1,498</span>
               <p class="text-[11px] text-brand-600 font-semibold dynamic-billing-subtext-enterprise">Billed monthly · Cancel anytime</p>
             </div>
 
