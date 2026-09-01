@@ -16,7 +16,7 @@ const BizzLoopConfig = {
     email: 'info@bizzloop.co.uk',
     phoneDisplay: '+44 7586 476247',
     whatsappNumber: '447586476247',
-    whatsappUrl: 'https://wa.me/447586476247?text=Hello%20BizzLoop%20team,%20I%20would%20like%20to%20learn%20more%20about%20your%20Managed%20Business%20Services%20Platform.',
+    whatsappUrl: 'https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform.',
     websiteUrl: 'https://bizzloop.co.uk',
     year: new Date().getFullYear()
   },

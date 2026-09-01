@@ -164,22 +164,21 @@ tailwind.config = {
 
     <!-- Desktop Navigation Links -->
     <nav class="hidden lg:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 text-xs font-bold text-slate-700">
-      <a href="#services" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Services</a>
-      <a href="#managed" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Managed Ecosystem</a>
-      <a href="#workflow" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">In Action</a>
-      <a href="#loop" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Connected Loop</a>
-      <a href="#pricing" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Pricing</a>
-      <button onclick="BizzLoopModals.openBlogAllArticles()" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all focus:outline-none">Insights</button>
-      <button onclick="BizzLoopModals.openCareersPage()" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all flex items-center gap-1 focus:outline-none">
+      <a href="index.html" class="px-3.5 py-1.5 rounded-full text-brand-600 bg-white shadow-xs">Home</a>
+      <a href="services/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Services</a>
+      <a href="plans/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Plans</a>
+      <a href="careers/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all flex items-center gap-1">
         <span>Careers</span>
         <span class="bg-brand-100 text-brand-600 text-[9px] font-extrabold px-1.5 py-0.2 rounded-full">Hiring</span>
-      </button>
-      <button onclick="BizzLoopModals.openAboutPage()" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all focus:outline-none">About</button>
+      </a>
+      <a href="affiliate/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Partner</a>
+      <a href="blog/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Insights</a>
+      <a href="contact/" class="px-3.5 py-1.5 rounded-full hover:text-brand-600 hover:bg-white transition-all">Contact</a>
     </nav>
 
     <!-- Desktop Primary Action -->
     <div class="hidden lg:flex items-center gap-3">
-      <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center hover:scale-105 transition-transform" aria-label="WhatsApp Us">
+      <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center hover:scale-105 transition-transform" aria-label="WhatsApp Us">
         <i class="ti ti-brand-whatsapp text-lg"></i>
       </a>
       <button onclick="BizzLoopModals.openDemoModal()" class="btn-primary text-xs px-5 py-2.5">
@@ -211,20 +210,18 @@ tailwind.config = {
     </div>
 
     <nav class="flex flex-col space-y-2 font-bold text-sm text-slate-800">
-      <a href="#services" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Core Services</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
-      <a href="#managed" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Managed Ecosystem</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
-      <a href="#workflow" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>BizzLoop in Action</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
-      <a href="#loop" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Connected Loop</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
-      <a href="#pricing" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Pricing Plans</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
-      <button onclick="BizzLoopModals.openBlogAllArticles()" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition text-left w-full"><span>Knowledgebase & Blog</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></button>
-      <button onclick="BizzLoopModals.openCareersPage()" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition text-left w-full"><span>Careers & Internships</span> <span class="bg-brand-50 text-brand-600 text-[10px] px-2 py-0.5 rounded-full font-bold">Hiring</span></button>
-      <button onclick="BizzLoopModals.openAffiliatePage()" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition text-left w-full"><span>Partner Programme (20% Share)</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></button>
-      <button onclick="BizzLoopModals.openAboutPage()" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition text-left w-full"><span>About BizzLoop Ltd</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></button>
+      <a href="index.html" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Home</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
+      <a href="services/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Services Hub (8 Streams)</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
+      <a href="plans/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Pricing Plans</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
+      <a href="careers/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Careers & Hiring</span> <span class="bg-brand-50 text-brand-600 text-[10px] px-2 py-0.5 rounded-full font-bold">Hiring</span></a>
+      <a href="affiliate/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Partner Programme (20% Share)</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
+      <a href="blog/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Knowledgebase & Insights</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
+      <a href="contact/" class="mob-nav-link flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition"><span>Contact & Live Demo</span> <i class="ti ti-chevron-right text-slate-300 text-xs"></i></a>
     </nav>
   </div>
 
   <div class="pt-4 border-t border-slate-100 space-y-2">
-    <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="w-full py-3 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 flex items-center justify-center gap-2">
+    <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener" class="w-full py-3 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 flex items-center justify-center gap-2">
       <i class="ti ti-brand-whatsapp text-base"></i>
       <span>Chat on WhatsApp</span>
     </a>
@@ -800,7 +797,7 @@ tailwind.config = {
           <span>Book Free Consultation</span>
           <i class="ti ti-arrow-right text-base"></i>
         </button>
-        <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="w-full sm:w-auto btn-secondary px-8 py-4 text-sm flex items-center justify-center gap-2">
+        <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener" class="w-full sm:w-auto btn-secondary px-8 py-4 text-sm flex items-center justify-center gap-2">
           <i class="ti ti-brand-whatsapp text-emerald-600 text-lg"></i>
           <span>Chat on WhatsApp</span>
         </a>
@@ -840,7 +837,7 @@ tailwind.config = {
         <div class="flex items-center gap-3 pt-1">
           <a href="https://www.linkedin.com/company/bizzloopltd/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-500 hover:text-white flex items-center justify-center transition-colors text-slate-300" aria-label="LinkedIn"><i class="ti ti-brand-linkedin text-sm"></i></a>
           <a href="https://www.instagram.com/bizzloopltd?utm_source=qr" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-colors text-slate-300" aria-label="Instagram"><i class="ti ti-brand-instagram text-sm"></i></a>
-          <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-colors text-slate-300" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp text-sm"></i></a>
+          <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-colors text-slate-300" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp text-sm"></i></a>
         </div>
       </div>
 
@@ -848,24 +845,25 @@ tailwind.config = {
       <div class="space-y-3">
         <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Services</h4>
         <ul class="space-y-2 text-slate-400 font-medium">
-          <li><a href="#services" class="hover:text-white transition">CRM & Customers</a></li>
-          <li><a href="#services" class="hover:text-white transition">Business Management</a></li>
-          <li><a href="#services" class="hover:text-white transition">Websites & Leads</a></li>
-          <li><a href="#services" class="hover:text-white transition">SEO & Visibility</a></li>
-          <li><a href="#services" class="hover:text-white transition">Digital Marketing</a></li>
-          <li><a href="#services" class="hover:text-white transition">Automation Workflows</a></li>
+          <li><a href="services/crm-customer-management/" class="hover:text-white transition">CRM & Customers</a></li>
+          <li><a href="services/business-management/" class="hover:text-white transition">Business Operations</a></li>
+          <li><a href="services/website-lead-capture/" class="hover:text-white transition">Websites & Leads</a></li>
+          <li><a href="services/seo-search-visibility/" class="hover:text-white transition">SEO & Visibility</a></li>
+          <li><a href="services/digital-marketing/" class="hover:text-white transition">Digital Marketing</a></li>
+          <li><a href="services/automation-workflows/" class="hover:text-white transition">Automation Workflows</a></li>
+          <li><a href="services/reporting-visibility/" class="hover:text-white transition">Reporting Cockpit</a></li>
         </ul>
       </div>
 
-      <!-- Resources Column -->
+      <!-- Company Column -->
       <div class="space-y-3">
         <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Company</h4>
         <ul class="space-y-2 text-slate-400 font-medium">
-          <li><button onclick="BizzLoopModals.openAboutPage()" class="hover:text-white transition">About BizzLoop</button></li>
-          <li><button onclick="BizzLoopModals.openCareersPage()" class="hover:text-white transition flex items-center gap-1.5"><span>Careers</span> <span class="text-[9px] bg-brand-500/30 text-brand-300 px-1.5 py-0.2 rounded-full font-bold">Hiring</span></button></li>
-          <li><button onclick="BizzLoopModals.openAffiliatePage()" class="hover:text-white transition">Partner Programme</button></li>
-          <li><button onclick="BizzLoopModals.openBlogAllArticles()" class="hover:text-white transition">Knowledgebase</button></li>
-          <li><button onclick="BizzLoopModals.openDemoModal()" class="hover:text-white transition">Book Consultation</button></li>
+          <li><a href="plans/" class="hover:text-white transition">Plans & Pricing</a></li>
+          <li><a href="careers/" class="hover:text-white transition flex items-center gap-1.5"><span>Careers</span> <span class="text-[9px] bg-brand-500/30 text-brand-300 px-1.5 py-0.2 rounded-full font-bold">Hiring</span></a></li>
+          <li><a href="affiliate/" class="hover:text-white transition">Partner Programme</a></li>
+          <li><a href="blog/" class="hover:text-white transition">Insights & Blog</a></li>
+          <li><a href="contact/" class="hover:text-white transition">Book Consultation</a></li>
         </ul>
       </div>
 
@@ -878,14 +876,14 @@ tailwind.config = {
           <p>England & Wales</p>
           <p><a href="mailto:info@bizzloop.co.uk" class="text-cyan-400 hover:underline">info@bizzloop.co.uk</a></p>
         </div>
-        <div class="flex flex-wrap gap-x-3 gap-y-1 text-[11px]">
-          <button onclick="BizzLoopModals.open('privacyModal')" class="hover:text-white transition">Privacy</button>
+        <div class="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-400">
+          <a href="privacy/" class="hover:text-white transition">Privacy</a>
           <span>·</span>
-          <button onclick="BizzLoopModals.open('termsModal')" class="hover:text-white transition">Terms</button>
+          <a href="terms/" class="hover:text-white transition">Terms</a>
           <span>·</span>
-          <button onclick="BizzLoopModals.open('cookieModal')" class="hover:text-white transition">Cookies</button>
+          <a href="cookies/" class="hover:text-white transition">Cookies</a>
           <span>·</span>
-          <button onclick="BizzLoopModals.open('gdprModal')" class="hover:text-white transition">UK GDPR</button>
+          <a href="gdpr/" class="hover:text-white transition">UK GDPR</a>
         </div>
       </div>
 
@@ -961,7 +959,7 @@ tailwind.config = {
               <i class="ti ti-mail text-brand-500 text-base"></i>
               <span>info@bizzloop.co.uk</span>
             </a>
-            <a href="https://wa.me/447586476247" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-xs text-emerald-700 font-semibold hover:text-emerald-800">
+            <a href="https://wa.me/447586476247?text=Hi%20BizzLoop%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20Business%20Services%20Platform." target="_blank" rel="noopener" class="flex items-center gap-2.5 text-xs text-emerald-700 font-semibold hover:text-emerald-800">
               <i class="ti ti-brand-whatsapp text-emerald-500 text-base"></i>
               <span>WhatsApp +44 7586 476247</span>
             </a>
